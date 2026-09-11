@@ -6,16 +6,26 @@
  *   1. Discord webhook  -> instant lead alert on your phone (free, no new accounts)
  *   2. Resend API       -> email notification (free tier: 3,000 emails/mo, optional)
  *
- * Deploy (once DNS is on Cloudflare):
- *   1. npx wrangler deploy worker/lead-form.js --name frondworks-leads
- *   2. Cloudflare dashboard -> Workers -> this worker -> Settings -> Domains & Routes
- *      add route: frondworks.com/api/lead
- *   3. wrangler secret put DISCORD_WEBHOOK_URL   (Discord: Server Settings -> Integrations -> Webhooks)
- *   4. (optional) wrangler secret put RESEND_API_KEY and wrangler secret put LEAD_EMAIL
+ * Deploy (DNS is on Cloudflare, site on GitHub Pages):
+ *   The contact form POSTs same-origin to frondworks.com/api/lead, which a
+ *   Workers Route sends to this worker. (CORS headers are also present so the
+ *   workers.dev URL keeps working as a fallback.)
+ *   1. Deploy: python3 worker/deploy.py   (uses the stored Cloudflare credential)
+ *   2. Set the Discord secret (dashboard: Workers & Pages -> frondworks-leads ->
+ *      Settings -> Variables and Secrets -> add secret DISCORD_WEBHOOK_URL)
+ *      Discord: Server Settings -> Integrations -> Webhooks -> New Webhook
+ *   3. (optional) Add secrets RESEND_API_KEY and LEAD_EMAIL for email alerts.
  *      Resend "from" domain needs one DNS TXT record to verify frondworks.com.
  */
 
 const MAX_LEN = 200;
+
+// CORS: the contact form lives on frondworks.com and POSTs here via fetch.
+const CORS = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'POST, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type',
+};
 
 function clean(v) {
   return (v ?? '').toString().trim().slice(0, MAX_LEN);
@@ -28,7 +38,7 @@ function validEmail(e) {
 function json(data, status = 200) {
   return new Response(JSON.stringify(data), {
     status,
-    headers: { 'content-type': 'application/json' },
+    headers: { 'content-type': 'application/json', ...CORS },
   });
 }
 
@@ -36,8 +46,13 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
+    // CORS preflight for the contact form on frondworks.com.
+    if (request.method === 'OPTIONS') {
+      return new Response(null, { status: 204, headers: CORS });
+    }
+
     if (url.pathname !== '/api/lead') {
-      return new Response('Not found', { status: 404 });
+      return new Response('Not found', { status: 404, headers: CORS });
     }
     if (request.method !== 'POST') {
       return new Response('Method not allowed', { status: 405 });
