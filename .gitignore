@@ -1,0 +1,9 @@
+# Secrets — never commit these. Worker secrets are set via
+# `wrangler secret put` and injected at runtime, not stored here.
+.env
+.env.*
+.dev.vars
+*.pem
+*.key
+.wrangler/
+node_modules/

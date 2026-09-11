@@ -16,3 +16,9 @@ Static site (HTML/CSS/JS, no build step), deployed via GitHub Pages from `main`.
 - [ ] DNS pointed at GitHub Pages
 - [ ] Email forwarding + SPF/DKIM/DMARC
 - [ ] Worker deployed at frondworks.com/api/lead
+
+## Security
+Secrets (Discord webhook URL, Resend API key, Cloudflare tokens) are stored as
+Cloudflare Worker secrets via `wrangler secret put` — never in this repo. The
+worker reads them from `env` at runtime. Do not commit `.env`, `.dev.vars`,
+or any credential files. See `.gitignore`.
