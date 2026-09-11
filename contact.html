@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Frondworks</title>
+  <meta name="description" content="Request your free Google Maps audit for your plumbing company. Tell us about your business and we'll take it from there.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html">Frond<span>works</span></a>
+    <button class="nav-toggle" aria-label="Open menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <nav class="nav-links">
+      <a href="index.html#how">How it works</a>
+      <a href="index.html#included">What's included</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="contact.html" class="btn">Free Maps Audit</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <span class="eyebrow">Contact</span>
+          <h2>Get your free Maps audit.</h2>
+          <p>Tell us a little about your company. We'll pull your current Google Maps rankings, look at what your competitors are doing, and send you the findings — free, no strings attached.</p>
+          <p>If we're a fit, we'll talk next steps. If we're not, you'll still keep the audit.</p>
+          <div class="contact-direct">
+            <strong>Prefer email?</strong>
+            <a href="mailto:hello@frondworks.com">hello@frondworks.com</a>
+            <p style="margin:10px 0 0; font-size:0.9rem">We reply within one business day.</p>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <form id="audit-form" action="/api/lead" method="post">
+            <!-- Honeypot: invisible to humans, catches bots. The worker silently drops submissions that fill it. -->
+            <input type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0">
+            <div class="form-row">
+              <div class="field">
+                <label for="name">Your name</label>
+                <input type="text" id="name" name="name" required autocomplete="name" placeholder="Mike Johnson">
+              </div>
+              <div class="field">
+                <label for="company">Company name</label>
+                <input type="text" id="company" name="company" required autocomplete="organization" placeholder="Johnson Plumbing Co.">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="(555) 123-4567">
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required autocomplete="email" placeholder="mike@johnsonplumbing.com">
+              </div>
+            </div>
+            <div class="field">
+              <label for="website">Website <span style="font-weight:400;color:var(--muted)">(if you have one)</span></label>
+              <input type="url" id="website" name="website" autocomplete="url" placeholder="https://johnsonplumbing.com">
+            </div>
+            <div class="field">
+              <label for="area">Primary service area</label>
+              <input type="text" id="area" name="area" required placeholder="e.g. Boise, ID and surrounding towns">
+            </div>
+            <div class="field">
+              <label for="message">Anything we should know?</label>
+              <textarea id="message" name="message" placeholder="Current marketing, biggest competitors, whatever's on your mind…"></textarea>
+            </div>
+            <button type="submit" class="btn large" style="width:100%">Request my free audit</button>
+            <p id="form-status" role="status"></p>
+            <p class="form-note">We never share your information. One plumbing company per service area — if yours is taken, we'll tell you straight.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="index.html">Frond<span>works</span></a>
+        <p style="margin-top:12px">Local SEO and Google Business Profile management for plumbing companies. One trade, done right.</p>
+      </div>
+      <div>
+        <h4>Site</h4>
+        <ul>
+          <li><a href="index.html#how">How it works</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="contact.html">Request a free audit</a></li>
+          <li><a href="mailto:hello@frondworks.com">hello@frondworks.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Frondworks. All rights reserved.</span>
+      <span>One plumbing company per service area.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
