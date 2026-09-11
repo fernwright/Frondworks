@@ -68,6 +68,7 @@ export default {
       email: clean(data.email).toLowerCase(),
       website: clean(data.website),
       area: clean(data.area),
+      trade: clean(data.trade),
       message: clean(data.message),
       at: new Date().toISOString(),
     };
@@ -83,6 +84,7 @@ export default {
       const fields = [
         { name: 'Name', value: lead.name, inline: true },
         { name: 'Company', value: lead.company, inline: true },
+        { name: 'Trade', value: lead.trade || '—', inline: true },
         { name: 'Phone', value: lead.phone || '—', inline: true },
         { name: 'Email', value: lead.email, inline: true },
         { name: 'Service area', value: lead.area, inline: true },
@@ -123,6 +125,7 @@ export default {
             text: [
               `Name: ${lead.name}`,
               `Company: ${lead.company}`,
+              `Trade: ${lead.trade || '—'}`,
               `Phone: ${lead.phone || '—'}`,
               `Email: ${lead.email}`,
               `Website: ${lead.website || '—'}`,

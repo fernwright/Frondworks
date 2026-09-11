@@ -407,8 +407,37 @@ p { margin-bottom: 14px; }
 }
 
 /* ---------- Responsive ---------- */
+/* Practice cards (studio homepage) */
+.practices-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.practice-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  box-shadow: var(--shadow);
+}
+.practice-card.featured { border: 2px solid var(--accent); }
+.practice-tag {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.practice-card h3 { margin: 0; font-size: 1.45rem; color: var(--navy); }
+.practice-card p { margin: 0; color: var(--muted); }
+.practice-card .btn { margin-top: 10px; }
+
 @media (max-width: 900px) {
-  .steps, .deliv-grid { grid-template-columns: 1fr; }
+  .steps, .deliv-grid, .practices-grid { grid-template-columns: 1fr; }
   .bench-grid { grid-template-columns: 1fr; gap: 20px; }
   .contact-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }

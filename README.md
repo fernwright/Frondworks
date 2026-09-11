@@ -5,9 +5,11 @@ Local SEO + Google Business Profile management for plumbers. $997/mo.
 ## Site
 Static site (HTML/CSS/JS, no build step), deployed via GitHub Pages from `main`.
 
-- `index.html` — homepage
-- `pricing.html` — pricing
+- `index.html` — Frondworks studio homepage (umbrella brand)
+- `plumbers.html` — plumber practice landing page
+- `pricing.html` — plumber program pricing
 - `contact.html` — free audit request form (POSTs to `/api/lead`)
+- `favicon.svg` — orange "F" site icon
 - `worker/lead-form.js` — Cloudflare Worker handling form submissions
   (Discord alert + optional Resend email). Deploy notes in the file header.
 
