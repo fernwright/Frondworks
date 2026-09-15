@@ -39,6 +39,7 @@
         <textarea id="code" rows="4" readonly></textarea>
         <button class="btn" id="copyBtn" type="button">Copy code</button>
         <div class="copied" id="copiedMsg"></div>
+        <p class="fineprint" id="stateLine" style="margin-top:16px"></p>
       </div>
     </div>
 
@@ -65,42 +66,63 @@
 
   <script>
     (function () {
-      var params = new URLSearchParams(window.location.search);
-      var code = params.get("code");
-      var error = params.get("error");
+      function render() {
+        var params = new URLSearchParams(window.location.search);
+        var code = params.get("code");
+        var error = params.get("error");
+        var state = params.get("state");
 
-      function show(id) {
-        document.getElementById(id).classList.remove("hidden");
+        document.getElementById("success").classList.add("hidden");
+        document.getElementById("declined").classList.add("hidden");
+        document.getElementById("missing").classList.add("hidden");
+        document.getElementById("copiedMsg").textContent = "";
+
+        if (code) {
+          var box = document.getElementById("code");
+          box.value = code;
+          var stateLine = document.getElementById("stateLine");
+          if (state) {
+            stateLine.textContent = "Link ID: " + state +
+              " — make sure this matches the link Fozzie sent you.";
+          } else {
+            stateLine.textContent = "";
+          }
+          document.getElementById("success").classList.remove("hidden");
+          // Auto-select for easy manual copying as a fallback.
+          box.focus();
+          box.select();
+        } else if (error) {
+          document.getElementById("declined").classList.remove("hidden");
+        } else {
+          document.getElementById("missing").classList.remove("hidden");
+        }
       }
 
-      if (code) {
+      document.getElementById("copyBtn").addEventListener("click", function () {
         var box = document.getElementById("code");
-        box.value = code;
-        show("success");
-        // Auto-select for easy manual copying as a fallback.
-        box.focus();
-        box.select();
-        document.getElementById("copyBtn").addEventListener("click", function () {
-          function done() {
-            document.getElementById("copiedMsg").textContent = "Copied! Paste it to Fozzie in chat.";
-          }
-          if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(code).then(done, function () {
-              box.select();
-              document.execCommand("copy");
-              done();
-            });
-          } else {
+        function done() {
+          document.getElementById("copiedMsg").textContent = "Copied! Paste it to Fozzie in chat.";
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(box.value).then(done, function () {
             box.select();
             document.execCommand("copy");
             done();
-          }
-        });
-      } else if (error) {
-        show("declined");
-      } else {
-        show("missing");
-      }
+          });
+        } else {
+          box.select();
+          document.execCommand("copy");
+          done();
+        }
+      });
+
+      render();
+      // If the browser restores this page from its back-forward cache, the
+      // code box can show a stale code while the address bar has the new one.
+      // Re-read the URL whenever the page is shown again.
+      window.addEventListener("pageshow", function (e) {
+        if (e.persisted) render();
+      });
     })();
   </script>
 </body>
