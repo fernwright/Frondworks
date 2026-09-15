@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eBay Credential Combiner — Frondworks</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <style>
+    :root { --navy:#0d2438; --ink:#12242f; --muted:#5a6d7d; --accent:#ef6c1a; --bg-soft:#f3f6f8; --border:#dfe7ee; }
+    * { box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: var(--ink); margin: 0; background: #fff; line-height: 1.65; }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 48px 24px 80px; }
+    .brand { color: var(--navy); font-weight: 800; font-size: 20px; text-decoration: none; }
+    .brand span { color: var(--accent); }
+    h1 { color: var(--navy); font-size: 32px; margin: 24px 0 8px; }
+    .updated { color: var(--muted); font-size: 14px; margin-bottom: 32px; }
+    h2 { color: var(--navy); font-size: 20px; margin: 0 0 8px; }
+    p { font-size: 16px; }
+    .card { background: var(--bg-soft); border: 1px solid var(--border); border-radius: 10px; padding: 20px 24px; margin: 24px 0; }
+    label.field { display: block; font-weight: 700; margin: 16px 0 6px; }
+    .hint { display: block; font-weight: 400; color: var(--muted); font-size: 13px; margin-top: 2px; }
+    input[type="text"], input[type="password"], textarea {
+      width: 100%; font-size: 16px; padding: 12px; border: 1px solid var(--border);
+      border-radius: 8px; background: #fff; color: var(--ink); font-family: ui-monospace, monospace;
+    }
+    textarea { resize: vertical; }
+    .show { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--muted); margin-top: 8px; }
+    button {
+      display: inline-block; margin-top: 20px; background: var(--accent); color: #fff; border: none;
+      border-radius: 8px; padding: 14px 28px; font-size: 17px; font-weight: 700; cursor: pointer;
+    }
+    button:active { opacity: 0.85; }
+    button.secondary { background: var(--navy); }
+    .copied { color: #1a7a2e; font-weight: 700; margin-top: 12px; }
+    .error { color: #b3261e; font-weight: 700; margin-top: 12px; }
+    code { background: #e8eef3; padding: 2px 6px; border-radius: 4px; font-size: 14px; }
+    .lock { font-size: 14px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="brand" href="index.html">Frond<span>works</span></a>
+    <h1>eBay Credential Combiner</h1>
+    <p class="updated">Private utility page. Not linked from anywhere on the site.</p>
+
+    <div class="card">
+      <p class="lock">Everything on this page runs in your browser. Nothing you type is sent anywhere. The Cert ID never leaves this device.</p>
+      <label class="field" for="appid">Production App ID</label>
+      <input id="appid" type="text" value="DustinBa-Fozzie-PRD-2a22f5e1c-fcf6a8e5" autocomplete="off" spellcheck="false">
+
+      <label class="field" for="certid">Production Cert ID
+        <span class="hint">From developer.ebay.com, Application Keys, your Production keyset. Same keyset as the App ID above.</span>
+      </label>
+      <input id="certid" type="password" placeholder="Paste your Cert ID here" autocomplete="off" spellcheck="false">
+      <label class="show"><input type="checkbox" id="showcert"> Show Cert ID</label>
+
+      <button id="go" type="button">Generate Basic header</button>
+      <p class="error" id="err" hidden></p>
+    </div>
+
+    <div class="card" id="outcard" hidden>
+      <h2>Your combined credential</h2>
+      <p>Copy the whole value below and paste it into the secure vault page. It must start with <code>Basic&nbsp;</code> followed by one long string, with no spaces or line breaks.</p>
+      <label class="field" for="out">Combined value</label>
+      <textarea id="out" rows="4" readonly></textarea>
+      <button id="copy" type="button" class="secondary">Copy to clipboard</button>
+      <p class="copied" id="copied" hidden>Copied. Now paste it into the secure vault page.</p>
+    </div>
+
+    <div class="card">
+      <h2>What this does</h2>
+      <p>eBay's API identifies your app with a header built as <code>Basic base64(AppID:CertID)</code>. This page joins the two values and encodes them, so you get a correct value without touching a terminal. Leading and trailing whitespace is trimmed automatically, since a stray space is the most common reason eBay rejects the header.</p>
+    </div>
+  </div>
+
+<script>
+(function () {
+  "use strict";
+  var appid = document.getElementById("appid");
+  var certid = document.getElementById("certid");
+  var showcert = document.getElementById("showcert");
+  var go = document.getElementById("go");
+  var err = document.getElementById("err");
+  var outcard = document.getElementById("outcard");
+  var out = document.getElementById("out");
+  var copy = document.getElementById("copy");
+  var copied = document.getElementById("copied");
+
+  function utf8ToB64(str) {
+    return btoa(unescape(encodeURIComponent(str)));
+  }
+
+  showcert.addEventListener("change", function () {
+    certid.type = showcert.checked ? "text" : "password";
+  });
+
+  go.addEventListener("click", function () {
+    err.hidden = true;
+    copied.hidden = true;
+    var a = appid.value.trim();
+    var c = certid.value.trim();
+    if (!a || !c) {
+      err.textContent = "Both the App ID and the Cert ID are required.";
+      err.hidden = false;
+      outcard.hidden = true;
+      return;
+    }
+    try {
+      out.value = "Basic " + utf8ToB64(a + ":" + c);
+    } catch (e) {
+      err.textContent = "Could not encode the values. Check for unusual characters and try again.";
+      err.hidden = false;
+      outcard.hidden = true;
+      return;
+    }
+    outcard.hidden = false;
+    out.focus();
+    out.select();
+  });
+
+  copy.addEventListener("click", function () {
+    function done() {
+      copied.hidden = false;
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(out.value).then(done, function () { fallback(); });
+    } else {
+      fallback();
+    }
+    function fallback() {
+      out.focus();
+      out.select();
+      try { document.execCommand("copy"); } catch (e) {}
+      done();
+    }
+  });
+})();
+</script>
+</body>
+</html>
