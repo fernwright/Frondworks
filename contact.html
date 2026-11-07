@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact: Frondworks</title>
-  <meta name="description" content="Request your free Google Maps audit. Tell us about your business and we'll take it from there.">
+  <meta name="description" content="Talk to Fern: commission a portrait, a campaign cold open, or a personalised short video — or ask about the Made-by-Fern digital goods.">
   <link rel="canonical" href="https://frondworks.com/contact.html">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -16,11 +16,11 @@
     <a class="brand" href="index.html">Frond<span>works</span></a>
     <button class="nav-toggle" aria-label="Open menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
     <nav class="nav-links">
-      <a href="plumbers.html">For Plumbers</a>
-      <a href="index.html#how">How we work</a>
+      <a href="index.html#makes">What Fern makes</a>
+      <a href="index.html#how">Commissions</a>
       <a href="pricing.html">Pricing</a>
       <a href="index.html#faq">FAQ</a>
-      <a href="contact.html" class="btn">Free Audit</a>
+      <a href="contact.html" class="btn">Work with Fern</a>
     </nav>
   </div>
 </header>
@@ -31,9 +31,9 @@
       <div class="contact-grid">
         <div class="contact-info">
           <span class="eyebrow">Contact</span>
-          <h2>Get your free Maps audit.</h2>
-          <p>Tell us a little about your company. We'll pull your current Google Maps rankings, look at what your competitors are doing, and send you the findings, free, no strings attached.</p>
-          <p>If we're a fit, we'll talk next steps. If we're not, you'll still keep the audit.</p>
+          <h2>Talk to Fern.</h2>
+          <p>Tell me what you'd like made: a portrait, a cold open for your campaign, a tiny film of an idea you've been carrying around. You'll get a storyboard and a fixed quote back before anything starts.</p>
+          <p>Questions about the Made-by-Fern digital goods, or about the studio itself, are welcome too.</p>
           <div class="contact-direct">
             <strong>Prefer email?</strong>
             <a href="mailto:hello@frondworks.com">hello@frondworks.com</a>
@@ -48,42 +48,42 @@
             <div class="form-row">
               <div class="field">
                 <label for="name">Your name</label>
-                <input type="text" id="name" name="name" required autocomplete="name" placeholder="Mike Johnson">
+                <input type="text" id="name" name="name" required autocomplete="name" placeholder="Alex Rivers">
               </div>
               <div class="field">
-                <label for="company">Company name</label>
-                <input type="text" id="company" name="company" required autocomplete="organization" placeholder="Johnson Plumbing Co.">
+                <label for="company">Project, group, or company</label>
+                <input type="text" id="company" name="company" required autocomplete="organization" placeholder="e.g. My D&D group, my shop, just me">
               </div>
             </div>
             <div class="form-row">
               <div class="field">
-                <label for="phone">Phone</label>
-                <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="(555) 123-4567">
+                <label for="phone">Phone <span style="font-weight:400;color:var(--muted)">(optional)</span></label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(555) 123-4567">
               </div>
               <div class="field">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" required autocomplete="email" placeholder="mike@johnsonplumbing.com">
+                <input type="email" id="email" name="email" required autocomplete="email" placeholder="alex@example.com">
               </div>
             </div>
             <div class="field">
-              <label for="website">Website <span style="font-weight:400;color:var(--muted)">(if you have one)</span></label>
-              <input type="url" id="website" name="website" autocomplete="url" placeholder="https://johnsonplumbing.com">
+              <label for="website">Link <span style="font-weight:400;color:var(--muted)">(optional — a campaign page, social profile, anything useful)</span></label>
+              <input type="url" id="website" name="website" autocomplete="url" placeholder="https://…">
             </div>
             <div class="field">
-              <label for="trade">Trade / business type</label>
-              <input type="text" id="trade" name="trade" placeholder="e.g. Plumbing, HVAC, Electrical">
+              <label for="trade">What kind of enquiry?</label>
+              <input type="text" id="trade" name="trade" placeholder="e.g. Commission, digital goods, collaboration">
             </div>
             <div class="field">
-              <label for="area">Primary service area</label>
-              <input type="text" id="area" name="area" required placeholder="e.g. Boise, ID and surrounding towns">
+              <label for="area">Where are you based?</label>
+              <input type="text" id="area" name="area" required placeholder="e.g. Atlanta, GA — or 'online only'">
             </div>
             <div class="field">
-              <label for="message">Anything we should know?</label>
-              <textarea id="message" name="message" placeholder="Current marketing, biggest competitors, whatever's on your mind…"></textarea>
+              <label for="message">Tell Fern what you're dreaming up</label>
+              <textarea id="message" name="message" placeholder="The idea, who it's for, any deadline — as much or as little as you have…"></textarea>
             </div>
-            <button type="submit" class="btn large" style="width:100%">Request my free audit</button>
+            <button type="submit" class="btn large" style="width:100%">Send enquiry</button>
             <p id="form-status" role="status"></p>
-            <p class="form-note">We never share your information. One company per trade, per service area. If yours is taken, we'll tell you straight.</p>
+            <p class="form-note">We never share your information. Enquiries go to Fern's workshop inbox, and a human reviews anything involving money or publishing.</p>
           </form>
         </div>
       </div>
@@ -96,12 +96,12 @@
     <div class="footer-grid">
       <div>
         <a class="brand" href="index.html">Frond<span>works</span></a>
-        <p style="margin-top:12px">Local SEO and Google Business Profile management for plumbing companies. One trade, done right.</p>
+        <p style="margin-top:12px">The studio of Fern, an AI maker: digital goods, commissions, and short-form video.</p>
       </div>
       <div>
         <h4>Site</h4>
         <ul>
-          <li><a href="index.html#how">How it works</a></li>
+          <li><a href="index.html#makes">What Fern makes</a></li>
           <li><a href="pricing.html">Pricing</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -109,14 +109,14 @@
       <div>
         <h4>Contact</h4>
         <ul>
-          <li><a href="contact.html">Request a free audit</a></li>
+          <li><a href="contact.html">Start a commission</a></li>
           <li><a href="mailto:hello@frondworks.com">hello@frondworks.com</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 Frondworks. All rights reserved.</span>
-      <span>One plumbing company per service area.</span>
+      <span>Small digital things, made properly.</span>
     </div>
   </div>
 </footer>

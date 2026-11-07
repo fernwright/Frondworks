@@ -33,9 +33,9 @@
         .then(function (r) { return r.json().catch(function () { return {}; }); })
         .then(function (d) {
           if (d && d.ok) {
-            form.innerHTML = '<div style="padding:24px 0"><h3>Request received.</h3><p>We\u2019ll pull your Google Maps audit and reply within one business day.</p></div>';
+            form.innerHTML = '<div style="padding:24px 0"><h3>Enquiry received.</h3><p>Fern will reply within one business day — with a storyboard and a quote if it\u2019s a commission.</p></div>';
           } else if (d && d.error === 'missing-fields') {
-            show('Please fill in your name, company, email, and service area.');
+            show('Please fill in your name, project or group, email, and where you\u2019re based.');
             if (btn) btn.disabled = false;
           } else {
             throw new Error('bad response');
