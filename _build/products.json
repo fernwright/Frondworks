@@ -547,6 +547,10 @@
       {
         "slug": "valentines-printables",
         "text": "See also the Valentine's Day Printables Pack"
+      },
+      {
+        "slug": "christmas-gift-tags",
+        "text": "See also the free Printable Christmas Gift Tags"
       }
     ],
     "images": [
@@ -564,6 +568,56 @@
         "src": "gift-card-holders/previews/03-gift-coupons.png",
         "name": "coupons",
         "alt": "DIY gift coupon pages, including pre-filled and blank fill-in coupons"
+      }
+    ]
+  },
+  {
+    "slug": "christmas-gift-tags",
+    "name": "Printable Christmas Gift Tags",
+    "price": "0.00",
+    "currency": "USD",
+    "free": true,
+    "buy_url": "https://payhip.com/b/BzMP3",
+    "format": "Printable PDF, US Letter and A4",
+    "subtitle": "A free 7-page printable pack of Christmas gift tags in Cream, Sage, Kraft-Tone, and Charcoal, plus a blank name tag sheet. US Letter and A4. Pay what you want is optional.",
+    "meta_description": "Free printable Christmas gift tags in Cream, Sage, Kraft-Tone, and Charcoal, plus a blank name tag sheet. US Letter and A4. Pay what you want, or take it at no cost.",
+    "card_blurb": "A 7-page printable pack of Christmas gift tags in four color families, plus a blank name tag sheet. US Letter and A4.",
+    "tagline": "Printable Christmas gift tags to cut out, punch, and tie onto gifts at home.",
+    "intro": [
+      "Printable Christmas gift tags to cut out, punch, and tie onto gifts at home."
+    ],
+    "inside_heading": "Inside this 7-page pack you will find",
+    "inside": [
+      "A cover and a How to Print and Cut guide with a clickable list of sheets.",
+      "Four color families of hanging tags, with nine tags on each sheet: Cream, Sage, Kraft-Tone, and Charcoal. Each designed tag has a simple motif, a short greeting (such as \"Merry Christmas\", \"Joy\", or \"For You\"), hole-punch marks, and To and From lines.",
+      "One fully blank name tag sheet with nine tags. These have punch marks and To and From lines only, so you can write any wording you like."
+    ],
+    "details": [
+      "Solid cut lines and punch marks are drawn on every tag. You will receive two PDFs laid out natively for US Letter and A4, plus a one-page Terms of Use PDF. This is a digital download. No physical item will be shipped.",
+      "Print at 100% actual size on cardstock or plain paper, and reprint any sheet for personal use.",
+      "This download is free. On Payhip you can pay what you want, or take it at no cost."
+    ],
+    "related": [
+      {
+        "slug": "gift-card-holders",
+        "text": "See also the Printable Gift Card Holders and DIY Gift Coupons"
+      }
+    ],
+    "images": [
+      {
+        "src": "christmas-gift-tags/previews/01-cover-hero.png",
+        "name": "cover",
+        "alt": "Cover of the Printable Christmas Gift Tags pack, a 7-page printable in US Letter and A4"
+      },
+      {
+        "src": "christmas-gift-tags/previews/02-color-families.png",
+        "name": "color-families",
+        "alt": "Preview of hanging Christmas gift tags in Cream, Sage, Kraft-Tone, and Charcoal"
+      },
+      {
+        "src": "christmas-gift-tags/previews/03-blank-and-mix.png",
+        "name": "blank-and-mix",
+        "alt": "Preview of the blank name tag sheet and a mix of designed Christmas gift tags"
       }
     ]
   },
