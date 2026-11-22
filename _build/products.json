@@ -273,6 +273,10 @@
       {
         "slug": "gift-list-tracker",
         "text": "Pair it with the free Holiday Gift List and Budget Tracker"
+      },
+      {
+        "slug": "gift-card-holders",
+        "text": "Pair it with the Printable Gift Card Holders and DIY Gift Coupons"
       }
     ]
   },
@@ -307,6 +311,10 @@
       {
         "slug": "holiday-planner",
         "text": "See also the 2026 Christmas and Holiday Planner"
+      },
+      {
+        "slug": "gift-card-holders",
+        "text": "Pair it with the Printable Gift Card Holders and DIY Gift Coupons"
       }
     ],
     "images": [
@@ -324,6 +332,59 @@
         "src": "gift-list-tracker/previews/03-budget-and-ideas.png",
         "name": "budget-ideas",
         "alt": "Budget and Ideas page with a budget summary, a gift-ideas list, and a stocking-stuffer list"
+      }
+    ]
+  },
+  {
+    "slug": "gift-card-holders",
+    "name": "Printable Gift Card Holders and DIY Gift Coupons",
+    "price": "4.99",
+    "currency": "USD",
+    "buy_url": "PLACEHOLDER_PAYHIP_URL",
+    "format": "Printable PDF, US Letter and A4",
+    "subtitle": "A 15-page printable pack of gift card holders and DIY gift coupons, for Christmas and any occasion. US Letter and A4.",
+    "meta_description": "A 15-page printable pack of gift card holders and DIY gift coupons for Christmas and any occasion. Eight holders, coupons, Letter and A4. $4.99.",
+    "card_blurb": "Eight gift card holders and a set of DIY gift coupons, for Christmas and any occasion. 15 pages, US Letter and A4.",
+    "tagline": "Wrap a gift card, or write a promise, with a printable set you can make at home.",
+    "intro": [
+      "This pack includes eight gift card holders, sized for a standard gift card (3.375 x 2.125 in, or 85.6 x 54 mm). You get fold-over cards, an envelope, a pocket sleeve, a single-layer frame card, and two hanging tags, in Merry Christmas, Happy Holidays, and any-occasion designs. Solid cut lines and dashed fold lines are marked, and an assembly page includes simple diagrams.",
+      "There is also a coupon booklet cover, eight pre-filled coupons, eight blank fill-in coupons, and a low-ink blank coupon page."
+    ],
+    "inside_heading": "What is included",
+    "inside": [
+      "Eight gift card holders for a standard gift card, in Merry Christmas, Happy Holidays, and any-occasion designs.",
+      "Fold-over cards, an envelope, a pocket sleeve, a single-layer frame card, and two hanging tags, with cut lines, fold lines, and an assembly page.",
+      "A coupon booklet cover, eight pre-filled coupons, eight blank fill-in coupons, and a low-ink blank coupon page."
+    ],
+    "details": [
+      "The set is 15 pages, drawn with light decoration for home printing. You will receive two PDFs, one US Letter and one A4, plus a one-page terms of use. This is a digital download. No physical item will be shipped.",
+      "Print at 100% actual size on cardstock for the holders."
+    ],
+    "related": [
+      {
+        "slug": "holiday-planner",
+        "text": "See also the 2026 Christmas and Holiday Planner"
+      },
+      {
+        "slug": "gift-list-tracker",
+        "text": "See also the free Holiday Gift List and Budget Tracker"
+      }
+    ],
+    "images": [
+      {
+        "src": "gift-card-holders/previews/01-cover-hero.png",
+        "name": "cover",
+        "alt": "Cover of the Printable Gift Card Holders and DIY Gift Coupons pack"
+      },
+      {
+        "src": "gift-card-holders/previews/02-gift-card-holder.png",
+        "name": "holder",
+        "alt": "A printable gift card holder preview, sized for a standard gift card"
+      },
+      {
+        "src": "gift-card-holders/previews/03-gift-coupons.png",
+        "name": "coupons",
+        "alt": "DIY gift coupon pages, including pre-filled and blank fill-in coupons"
       }
     ]
   },
