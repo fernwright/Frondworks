@@ -5,8 +5,8 @@ Adding a product = add one entry to products.json, then run:
     python3 _build/build.py --images /path/to/preview/root   (once, to make WebP/JPG previews)
     python3 _build/build.py                                  (regenerates every page)
 
-Generates: index.html, <slug>/index.html for each product, sitemap.xml,
-and img/<slug>/*. Hand-kept files: CNAME, plumbers.html (archived), the
+Generates: index.html, <slug>/index.html for each product, /guides/ pages,
+sitemap.xml, and img/<slug>/*. Hand-kept files: CNAME, plumbers.html (archived), the
 contact form markup below (field names must match worker/lead-form.js).
 The _build folder is not published (Jekyll skips folders starting with _).
 """
@@ -18,6 +18,7 @@ SHOP = "https://payhip.com/Frondworks"
 EMAIL = "hello@frondworks.com"
 TODAY = datetime.date.today().isoformat()
 products = json.load(open(os.path.join(ROOT, "_build", "products.json")))
+guides = json.load(open(os.path.join(ROOT, "_build", "guides.json")))
 e = html.escape
 
 TOGETHER_ALT = "Preview pages from the Money Planner, the Bill Audit, and the Goal-Setting Kit, shown side by side"
@@ -175,6 +176,7 @@ def head(title, desc, path, og_image, og_alt, og_type="website", jsonld=()):
     <a class="brand" href="/">Frondworks</a>
     <nav aria-label="Main">
       <a href="/#products">Products</a>
+      <a href="/guides/">Guides</a>
       <a href="/#faq">FAQ</a>
       <a href="/#contact">Contact</a>
       <a class="nav-shop" href="{SHOP}">Shop</a>
@@ -202,6 +204,7 @@ def footer():
       <h2>Help</h2>
       <ul>
         <li><a href="/#faq">FAQ</a></li>
+        <li><a href="/guides/">Guides</a></li>
         <li><a href="/#contact">Contact form</a></li>
         <li><a href="mailto:{EMAIL}">{EMAIL}</a></li>
       </ul>
@@ -293,6 +296,13 @@ def build_home():
       </details>''' for q, a in FAQ)
     cards = "\n".join(card(p, i) for i, p in enumerate(singles()))
     featured = "\n".join(feature(p) for p in bundles())
+    home_guides = "\n".join(
+        "        <li>\n"
+        f'          <h3><a href="/guides/{g["slug"]}/">{e(g["h1"])}</a></h3>\n'
+        f'          <p>{e(g["summary"])}</p>\n'
+        "        </li>"
+        for g in guides
+    )
     out = head(title, desc, "/", "/img/og-home.jpg", "Frondworks product previews", jsonld=(org, site, items)) + f'''<main id="main">
   <section class="hero">
     <div class="wrap">
@@ -311,6 +321,17 @@ def build_home():
 {cards}
       </ul>
       <p class="more"><a href="{SHOP}">See everything in the full Frondworks shop on Payhip</a></p>
+    </div>
+  </section>
+
+  <section id="guides" class="section" aria-labelledby="guides-h">
+    <div class="wrap narrow">
+      <h2 id="guides-h">Guides</h2>
+      <p>Short, practical how-tos for planning and everyday money tasks.</p>
+      <ul class="guide-list">
+{home_guides}
+      </ul>
+      <p class="more"><a href="/guides/">All guides</a></p>
     </div>
   </section>
 
@@ -448,6 +469,7 @@ def build_product(p):
       </ul>
 {details}
 {mid_callout}
+{guide_callouts(p)}
       <div class="buy">
         {price_html(p)}
         <a class="btn big" href="{p["buy_url"]}">{buy_label(p)}</a>
@@ -465,8 +487,103 @@ def build_product(p):
 ''' + footer()
     write(f'{p["slug"]}/index.html', out)
 
+
+def guide_callouts(p):
+    bits = []
+    for g in guides:
+        if p["slug"] in g.get("products", []):
+            bits.append(f'      <p class="callout"><a href="/guides/{g["slug"]}/">A short guide: {e(g["h1"])}</a></p>')
+    return "\n".join(bits)
+
+
+def article_ld(g):
+    url = f"{SITE}/guides/{g['slug']}/"
+    return {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": g["h1"],
+        "description": g["meta_description"],
+        "datePublished": g["date"],
+        "dateModified": g["date"],
+        "author": {"@type": "Organization", "name": "Frondworks", "url": SITE + "/"},
+        "publisher": {"@type": "Organization", "name": "Frondworks", "url": SITE + "/"},
+        "mainEntityOfPage": {"@type": "WebPage", "@id": url},
+        "image": SITE + g["og_image"],
+    }
+
+
+def build_guides_index():
+    title = "Guides | Frondworks"
+    desc = "Short, practical how-tos from Frondworks for holiday gift budgets, debt payoff order, and reviewing recurring subscriptions."
+    crumbs = {
+        "@context": "https://schema.org", "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Frondworks", "item": SITE + "/"},
+            {"@type": "ListItem", "position": 2, "name": "Guides", "item": SITE + "/guides/"},
+        ],
+    }
+    items = "\n".join(
+        "        <li>\n"
+        f'          <h2><a href="/guides/{g["slug"]}/">{e(g["h1"])}</a></h2>\n'
+        f'          <p>{e(g["summary"])}</p>\n'
+        "        </li>"
+        for g in guides
+    )
+    out = head(title, desc, "/guides/", "/img/og-home.jpg", "Frondworks product previews", jsonld=(crumbs,)) + f'''<main id="main">
+  <section class="section">
+    <div class="wrap narrow">
+      <p class="crumbs"><a href="/">Home</a> <span aria-hidden="true">/</span> Guides</p>
+      <h1>Guides</h1>
+      <p class="lede">Short, practical how-tos for planning and everyday money tasks. No jargon, and no promised results.</p>
+      <ul class="guide-list">
+{items}
+      </ul>
+    </div>
+  </section>
+</main>
+''' + footer()
+    write("guides/index.html", out)
+
+
+def build_guide(g):
+    body = open(os.path.join(ROOT, "_build", "guides", g["file"])).read().strip()
+    others = "\n".join(
+        f'        <li><a href="/guides/{o["slug"]}/">{e(o["h1"])}</a></li>'
+        for o in guides if o is not g
+    )
+    crumbs = {
+        "@context": "https://schema.org", "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Frondworks", "item": SITE + "/"},
+            {"@type": "ListItem", "position": 2, "name": "Guides", "item": SITE + "/guides/"},
+            {"@type": "ListItem", "position": 3, "name": g["h1"], "item": f"{SITE}/guides/{g['slug']}/"},
+        ],
+    }
+    year, month, day = g["date"].split("-")
+    months = "January February March April May June July August September October November December".split()
+    published = f"{months[int(month)-1]} {int(day)}, {year}"
+    out = head(g["title"], g["meta_description"], f"/guides/{g['slug']}/", g["og_image"], g["og_alt"],
+               og_type="article", jsonld=(article_ld(g), crumbs)) + f'''<main id="main">
+  <section class="section">
+    <div class="wrap narrow article">
+      <p class="crumbs"><a href="/">Home</a> <span aria-hidden="true">/</span> <a href="/guides/">Guides</a> <span aria-hidden="true">/</span> {e(g["h1"])}</p>
+      <h1>{e(g["h1"])}</h1>
+      <p class="guide-date">Published {e(published)}</p>
+{body}
+      <h2 class="small">More guides</h2>
+      <ul>
+{others}
+        <li><a href="/guides/">All guides</a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+''' + footer()
+    write(f'guides/{g["slug"]}/index.html', out)
+
+
 def build_sitemap():
-    urls = ["/"] + [f'/{p["slug"]}/' for p in products]
+    urls = ["/"] + [f'/{p["slug"]}/' for p in products] + ["/guides/"] + [f'/guides/{g["slug"]}/' for g in guides]
     body = "\n".join(f"  <url>\n    <loc>{SITE}{u}</loc>\n    <lastmod>{TODAY}</lastmod>\n  </url>" for u in urls)
     write("sitemap.xml", f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{body}\n</urlset>\n')
 
@@ -484,4 +601,7 @@ if __name__ == "__main__":
         attach_together(p)
     build_home()
     for p in products: build_product(p)
+    build_guides_index()
+    for g in guides:
+        build_guide(g)
     build_sitemap()

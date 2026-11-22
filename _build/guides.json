@@ -1,0 +1,46 @@
+[
+  {
+    "slug": "holiday-gift-budget",
+    "title": "How to Set a Holiday Gift Budget | Frondworks",
+    "h1": "How to set a holiday gift budget",
+    "meta_description": "A practical way to set a holiday gift budget: pick a total you can spend, split it by person, track each gift, and adjust as you go.",
+    "summary": "Pick a gift total you can spend, split it across the people on your list, and track planned versus actual costs as you shop.",
+    "date": "2026-11-22",
+    "og_image": "/img/gift-list-tracker/hero-1200.jpg",
+    "og_alt": "Gift list page with an overall budget box and rows for each gift",
+    "products": [
+      "gift-list-tracker",
+      "holiday-planner"
+    ],
+    "file": "holiday-gift-budget.html"
+  },
+  {
+    "slug": "debt-snowball-vs-avalanche",
+    "title": "Snowball vs Avalanche: Two Ways to Order Debt Payoff | Frondworks",
+    "h1": "Snowball vs avalanche: two ways to order debt payoff",
+    "meta_description": "A plain-language explanation of snowball and avalanche debt payoff orders, including general tradeoffs. General information, not financial advice.",
+    "summary": "Snowball orders debts by the smallest balance first. Avalanche orders them by the highest interest rate first. Here is how the two methods differ, as general information only.",
+    "date": "2026-11-22",
+    "og_image": "/img/debt-payoff-planner/cover-1200.jpg",
+    "og_alt": "Cover of the 2027 Debt Payoff Planner, a 15-page printable in US Letter and A4",
+    "products": [
+      "debt-payoff-planner",
+      "budget-binder"
+    ],
+    "file": "debt-snowball-vs-avalanche.html"
+  },
+  {
+    "slug": "review-recurring-subscriptions",
+    "title": "How to Find and Review Every Recurring Subscription | Frondworks",
+    "h1": "How to find and review every recurring subscription",
+    "meta_description": "A practical process for finding recurring subscriptions on bank and card statements, in app stores, and in email, then reviewing each one.",
+    "summary": "Find recurring charges on bank and card statements, in app stores, in email receipts, and among annual renewals, then review each one on a single list.",
+    "date": "2026-11-22",
+    "og_image": "/img/bill-audit/dashboard-1200.jpg",
+    "og_alt": "Bill Audit dashboard with spend totals and a category chart, filled with sample data",
+    "products": [
+      "bill-audit"
+    ],
+    "file": "review-recurring-subscriptions.html"
+  }
+]
