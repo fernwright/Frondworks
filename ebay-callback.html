@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>eBay Authorization — Fozzie eBay Lister</title>
+  <title>eBay Authorization: Fozzie eBay Lister</title>
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <style>
@@ -33,7 +33,7 @@
     <div id="success" class="hidden">
       <h1>You're connected ✓</h1>
       <p class="lede">Copy the authorization code below and paste it to Fozzie in chat.
-      It's single-use and expires in about 5 minutes — paste it right away.</p>
+      It's single-use and expires in about 5 minutes, so paste it right away.</p>
       <div class="codebox">
         <label for="code">Your authorization code</label>
         <textarea id="code" rows="4" readonly></textarea>
@@ -83,7 +83,7 @@
           var stateLine = document.getElementById("stateLine");
           if (state) {
             stateLine.textContent = "Link ID: " + state +
-              " — make sure this matches the link Fozzie sent you.";
+              ". Make sure this matches the link Fozzie sent you.";
           } else {
             stateLine.textContent = "";
           }

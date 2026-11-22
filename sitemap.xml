@@ -2,20 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://frondworks.com/</loc>
-    <lastmod>2026-11-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-11-22</lastmod>
   </url>
   <url>
-    <loc>https://frondworks.com/pricing.html</loc>
-    <lastmod>2026-11-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://frondworks.com/planner/</loc>
+    <lastmod>2026-11-22</lastmod>
   </url>
   <url>
-    <loc>https://frondworks.com/contact.html</loc>
-    <lastmod>2026-11-07</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://frondworks.com/bill-audit/</loc>
+    <lastmod>2026-11-22</lastmod>
+  </url>
+  <url>
+    <loc>https://frondworks.com/goal-kit/</loc>
+    <lastmod>2026-11-22</lastmod>
   </url>
 </urlset>

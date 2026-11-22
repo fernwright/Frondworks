@@ -1,0 +1,44 @@
+        <form id="audit-form" action="/api/lead" method="post">
+          <!-- Honeypot: invisible to humans, catches bots. The worker silently drops submissions that fill it. -->
+          <input type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0">
+          <div class="row">
+            <div class="field">
+              <label for="name">Your name</label>
+              <input type="text" id="name" name="name" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="company">Product or topic</label>
+              <input type="text" id="company" name="company" required autocomplete="organization" placeholder="e.g. Money Planner, or a general question">
+            </div>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="phone">Phone <span class="opt">(optional)</span></label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel">
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required autocomplete="email">
+            </div>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="website">Link <span class="opt">(optional)</span></label>
+              <input type="url" id="website" name="website" autocomplete="url" placeholder="https://">
+            </div>
+            <div class="field">
+              <label for="trade">Type of question <span class="opt">(optional)</span></label>
+              <input type="text" id="trade" name="trade" placeholder="e.g. Download, formats, other">
+            </div>
+          </div>
+          <div class="field">
+            <label for="area">Where are you based?</label>
+            <input type="text" id="area" name="area" required placeholder="City or country">
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5"></textarea>
+          </div>
+          <button type="submit" class="btn big" style="width:100%">Send message</button>
+          <p id="form-status" role="status"></p>
+        </form>

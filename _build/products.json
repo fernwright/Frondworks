@@ -1,0 +1,135 @@
+[
+  {
+    "slug": "planner",
+    "name": "2027 Fresh Start Money Planner",
+    "price": "9.00",
+    "currency": "USD",
+    "buy_url": "https://payhip.com/b/gYt75",
+    "format": "Spreadsheet for Excel and Google Sheets",
+    "subtitle": "Budget, bills, debt, savings, and a holiday spending cap in one spreadsheet for Excel and Google Sheets.",
+    "meta_description": "A 12-tab money spreadsheet for Excel and Google Sheets: budget, bills, debt payoff, savings, net worth, and a holiday spending cap. $9, instant download.",
+    "card_blurb": "Budget, bills, debt, savings, and a holiday spending cap. 12 tabs for Excel and Google Sheets.",
+    "tagline": "Plan 2027, and keep December from running past you.",
+    "intro": [
+      "A personal finance spreadsheet for Excel and Google Sheets. Use the Holiday Planner now for gifts, hosting, travel, decor, and cards. Use the budget, bills, debt, and savings tabs to start 2027 without a scramble in January.",
+      "It does not connect to your bank. You type the numbers. There is no subscription."
+    ],
+    "inside_heading": "What is inside (12 tabs)",
+    "inside": [
+      "<strong>Dashboard:</strong> year-to-date totals, a 50/30/20 split, a monthly chart, holiday remaining, debt, and net worth.",
+      "<strong>Setup, Annual Budget, and Monthly Review:</strong> your income, 21 categories, a 12-month plan, and planned vs. actual.",
+      "<strong>Holiday Planner:</strong> a spending cap and gift list, plus food, travel, decor, cards, and charity.",
+      "<strong>Transactions</strong> (up to 500 rows), <strong>Bills</strong>, <strong>Sinking Funds</strong>, <strong>Savings Goals</strong>, <strong>Debt Payoff</strong> (snowball vs. avalanche ranking and an estimated months to pay off), and <strong>Net Worth</strong>."
+    ],
+    "details": [
+      "Cream-gold cells are inputs. Gray-green cells are calculated. Gold rows are fictional samples. No macros. Sheets are protected with no password.",
+      "You get a zip with the Excel workbook, an instructions PDF, and short personal-use terms. Instant download. No physical item is shipped.",
+      "This is a planning tool, not financial advice. It does not sync with a bank or send reminders."
+    ],
+    "images": [
+      {
+        "src": "previews/preview-1-dashboard.png",
+        "name": "dashboard",
+        "alt": "Planner dashboard tab with year-to-date totals, a 50/30/20 split, and a monthly income vs. expenses chart, filled with sample data"
+      },
+      {
+        "src": "previews/preview-2-holiday-gift-cap.png",
+        "name": "holiday-cap",
+        "alt": "Holiday Planner tab with a spending cap, other holiday expenses, and a gift list, filled with sample data"
+      },
+      {
+        "src": "previews/preview-3-debt-payoff.png",
+        "name": "debt-payoff",
+        "alt": "Debt Payoff tab ranking debts by snowball and avalanche order, filled with sample data"
+      }
+    ]
+  },
+  {
+    "slug": "bill-audit",
+    "name": "Subscription and Recurring Bill Audit",
+    "price": "7.00",
+    "currency": "USD",
+    "buy_url": "https://payhip.com/b/u8YtQ",
+    "format": "Spreadsheet for Excel and Google Sheets",
+    "subtitle": "A tracker for Excel and Google Sheets with a 12-month renewal calendar and a Keep / Cancel / Downgrade column.",
+    "meta_description": "Track every subscription and recurring bill in one Excel and Google Sheets spreadsheet, with a renewal calendar and decision column. $7, instant download.",
+    "card_blurb": "Every subscription and recurring bill in one spreadsheet, with a renewal calendar and a decision column.",
+    "tagline": "List every subscription and recurring bill in one spreadsheet for Excel and Google Sheets.",
+    "intro": [
+      "Enter the name, category, payment method, frequency, amount, next renewal, and notes. Monthly and annual costs are calculated from frequency (weekly, monthly, quarterly, semi-annual, or annual)."
+    ],
+    "inside_heading": "What it does",
+    "inside": [
+      "<strong>Keep / Cancel / Downgrade column:</strong> tallies possible savings. Cancel uses the full annual cost, downgrade uses the difference from a new amount you enter, and keep records zero. These figures record your choices, not a promise of money saved.",
+      "<strong>12-month renewal calendar:</strong> the year is set on Setup (default 2027) and the calendar shows what is due each month.",
+      "<strong>Dashboard:</strong> spend, spend by category with a chart, decision counts, savings found, the top 5 by annual cost, and renewals in the next 30 days."
+    ],
+    "details": [
+      "This is a digital download with a fictional sample file, a blank copy, and an instructions PDF. Personal-use terms are included.",
+      "You type the numbers. It does not connect to your bank, detect subscriptions, or send reminders. No macros. No physical item is shipped."
+    ],
+    "images": [
+      {
+        "src": "subscription-audit/previews/01-dashboard-mockup.png",
+        "name": "dashboard",
+        "alt": "Bill Audit dashboard with total spend, spend by category, decision counts, and upcoming renewals, filled with sample data"
+      },
+      {
+        "src": "subscription-audit/previews/02-subscriptions-mockup.png",
+        "name": "subscriptions",
+        "alt": "Subscriptions list with frequency, amount, next renewal, and a Keep, Cancel, or Downgrade decision for each row, filled with sample data"
+      },
+      {
+        "src": "subscription-audit/previews/03-renewal-calendar-mockup.png",
+        "name": "renewal-calendar",
+        "alt": "12-month renewal calendar showing what is due each month, filled with sample data"
+      }
+    ]
+  },
+  {
+    "slug": "goal-kit",
+    "name": "2027 New Year Goal-Setting Kit",
+    "price": "4.99",
+    "currency": "USD",
+    "buy_url": "https://payhip.com/b/uGWqE",
+    "format": "Printable PDF, US Letter and A4",
+    "subtitle": "A 30-page printable PDF: year in review, Word of the Year, goal worksheets, and monthly habit trackers. US Letter and A4.",
+    "meta_description": "A 30-page printable 2027 goal kit: year in review, Word of the Year, goal worksheets, and monthly habit trackers. US Letter and A4 PDFs. $4.99.",
+    "card_blurb": "A 30-page printable PDF with a year in review, goal worksheets, and a habit tracker for every month of 2027.",
+    "tagline": "Start 2027 with a quiet, practical plan.",
+    "intro": [
+      "This printable Goal-Setting Kit takes you from a look back at 2026 to a year you can actually live."
+    ],
+    "inside_heading": "Inside you will find",
+    "inside": [
+      "A 2026 year-in-review.",
+      "A Word of the Year page.",
+      "Eight life-area goal worksheets: Health, Career and Work, Money, Relationships, Personal Growth, Home, Fun and Adventure, and Mind and Spirit.",
+      "Three goal-breakdown pages for turning aims into quarterly milestones and monthly steps.",
+      "A one-page 2027 overview.",
+      "A habit tracker for every month of 2027, with the correct days and weekday initials already filled in."
+    ],
+    "details": [
+      "The kit is 30 pages, designed for home printing, with a calm layout, generous writing space, and light ink use.",
+      "You will receive two PDFs, one US Letter and one A4, plus a one-page terms of use. This is a digital download. No physical item will be shipped.",
+      "Print at 100% actual size, and reprint any page whenever you need a fresh copy."
+    ],
+    "images": [
+      {
+        "src": "goal-kit/previews/01-cover-mockup.png",
+        "name": "cover",
+        "alt": "Cover page of the 2027 New Year Goal-Setting Kit"
+      },
+      {
+        "src": "goal-kit/previews/02-worksheet-mockup.png",
+        "name": "worksheet",
+        "alt": "Health goal worksheet page with lined writing space"
+      },
+      {
+        "src": "goal-kit/previews/03-habit-tracker-mockup.png",
+        "name": "habit-tracker",
+        "alt": "January 2027 habit tracker page with days and weekday initials filled in"
+      }
+    ]
+  }
+]
