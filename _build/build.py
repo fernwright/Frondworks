@@ -231,7 +231,7 @@ FORM = open(os.path.join(ROOT, "_build", "contact-form.html")).read().rstrip()
 
 FAQ = [
     ("How do I get my files?", "Checkout is handled by Payhip. After you pay, you get an instant download of a zip file. No physical item is shipped."),
-    ("What formats are the files?", "The Money Planner and Bill Audit are Excel workbooks that also work in Google Sheets, with instructions PDFs. The Goal-Setting Kit and Christmas and Holiday Planner are printable PDFs in US Letter and A4. The Monthly and Weekly Planner includes four PDFs: US Letter and A4, in Sunday start and Monday start editions. The Budget Binder is a 28-page printable PDF in US Letter and A4. The Holiday Gift List and Budget Tracker is a free two-page printable PDF in US Letter and A4. The Gift Card Holders and DIY Gift Coupons pack is a 15-page printable PDF in US Letter and A4. The Debt Payoff Planner is a 15-page printable PDF in US Letter and A4. The 2027 Fresh Start Bundle includes the Money Planner, the Bill Audit, and the Goal-Setting Kit in one purchase."),
+    ("What formats are the files?", "The Money Planner and Bill Audit are Excel workbooks that also work in Google Sheets, with instructions PDFs. The Goal-Setting Kit and Christmas and Holiday Planner are printable PDFs in US Letter and A4. The Monthly and Weekly Planner includes four PDFs: US Letter and A4, in Sunday start and Monday start editions. The Budget Binder is a 28-page printable PDF in US Letter and A4. The Holiday Gift List and Budget Tracker is a free two-page printable PDF in US Letter and A4. The Gift Card Holders and DIY Gift Coupons pack is a 15-page printable PDF in US Letter and A4. The Debt Payoff Planner is a 15-page printable PDF in US Letter and A4. The Meal Planner and Grocery List is a 14-page printable PDF in US Letter and A4. The 2027 Printable Calendar is a free 13-page printable PDF in four editions: US Letter and A4, Sunday start and Monday start. The 2027 Fresh Start Bundle includes the Money Planner, the Bill Audit, and the Goal-Setting Kit in one purchase."),
     ("What is in the 2027 Fresh Start Bundle?", "It includes the 2027 Fresh Start Money Planner ($9), the Subscription and Recurring Bill Audit ($7), and the 2027 New Year Goal-Setting Kit ($4.99). Bought separately they are $20.99. The bundle is $14.99, so you save $6 versus buying them separately."),
     ("Can I share or resell the files?", "No. Each product is licensed for personal use: you may use, edit, and print it for yourself and your household. Please do not resell, share, or redistribute the files. The terms are included in each download."),
     ("Do the spreadsheets connect to my bank?", "No. You type the numbers. The spreadsheets do not connect to your bank or send reminders, and they use no macros."),
@@ -357,9 +357,42 @@ def related_callouts(p):
         bits.insert(0, '      <p class="compare">This download is free. Pay what you want is optional.</p>')
     return "\n".join(bits)
 
+
+def product_faq_html(p):
+    items = p.get("faq") or []
+    if not items:
+        return ""
+    body = "\n".join(
+        "      <details>\n"
+        "        <summary>" + e(q) + "</summary>\n"
+        "        <p>" + e(a) + "</p>\n"
+        "      </details>"
+        for q, a in items
+    )
+    return "      <h2 id=\"product-faq\">FAQ</h2>\n" + body + "\n"
+
+
+def faq_ld(p):
+    items = p.get("faq") or []
+    if not items:
+        return None
+    return {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": q,
+                "acceptedAnswer": {"@type": "Answer", "text": a},
+            }
+            for q, a in items
+        ],
+    }
+
+
 def build_product(p):
     others = [o for o in products if o is not p]
-    title = f'{p["name"]} | Frondworks'
+    title = p.get("page_title") or f'{p["name"]} | Frondworks'
     gallery_items = list(p["images"])
     if is_bundle(p):
         # Combined composite first, then the first preview of each included product.
@@ -391,11 +424,11 @@ def build_product(p):
         {"@type": "ListItem", "position": 1, "name": "Frondworks", "item": SITE + "/"},
         {"@type": "ListItem", "position": 2, "name": p["name"], "item": f"{SITE}/{p['slug']}/"}]}
     out = head(title, p["meta_description"], f'/{p["slug"]}/', f'/img/{p["slug"]}/{p["images"][0]["name"]}-1200.jpg',
-               p["images"][0]["alt"], og_type="product", jsonld=(product_ld(p), crumbs)) + f'''<main id="main">
+               p["images"][0]["alt"], og_type="product", jsonld=tuple(j for j in (product_ld(p), crumbs, faq_ld(p)) if j)) + f'''<main id="main">
   <section class="section product">
     <div class="wrap">
       <p class="crumbs"><a href="/">Home</a> <span aria-hidden="true">/</span> <a href="/#products">Products</a></p>
-      <h1>{e(p["name"])}</h1>
+      <h1>{e(p.get("h1") or p["name"])}</h1>
       <p class="lede">{e(p["subtitle"])}</p>
       <div class="buy">
         {price_html(p)}
@@ -419,6 +452,7 @@ def build_product(p):
         {price_html(p)}
         <a class="btn big" href="{p["buy_url"]}">{buy_label(p)}</a>
       </div>
+{product_faq_html(p)}
       <p>Questions? See the <a href="/#faq">FAQ</a> or email <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
       <h2 class="small">More from Frondworks</h2>
       <ul>

@@ -86,6 +86,10 @@
       {
         "slug": "debt-payoff-planner",
         "text": "Pair it with the 2027 Debt Payoff Planner"
+      },
+      {
+        "slug": "2027-calendar",
+        "text": "See also the free 2027 Printable Calendar"
       }
     ]
   },
@@ -509,6 +513,83 @@
     ]
   },
   {
+    "slug": "2027-calendar",
+    "name": "2027 Printable Calendar",
+    "h1": "Free 2027 Printable Calendar",
+    "page_title": "Free 2027 Printable Calendar (Letter and A4, Sunday or Monday Start) | Frondworks",
+    "price": "0.00",
+    "currency": "USD",
+    "free": true,
+    "buy_url": "PLACEHOLDER_PAYHIP_URL",
+    "format": "Printable PDF, US Letter and A4",
+    "subtitle": "A free 13-page printable 2027 calendar PDF with a year-at-a-glance and 12 monthly pages. US Letter and A4, Sunday or Monday start.",
+    "meta_description": "Free printable 2027 calendar PDF: a year-at-a-glance and 12 monthly pages, with room to write. US Letter and A4, Sunday or Monday start. Instant download.",
+    "card_blurb": "A free 13-page printable 2027 calendar with a year-at-a-glance and monthly pages. Letter and A4, Sunday or Monday start.",
+    "tagline": "A free printable calendar for 2027, made for home printing.",
+    "intro": [
+      "You get four calendar PDFs: US Letter and A4, each in a Sunday start edition and a Monday start edition. Print the one that matches your paper and the day you want each week to begin."
+    ],
+    "inside_heading": "Each file is 13 pages",
+    "inside": [
+      "A 2027 year-at-a-glance, with all 12 months on one page.",
+      "A monthly calendar for January through December, with the correct 2027 dates already filled in and room to write in each day. The calendar does not mark holidays.",
+      "In a PDF reader, the year overview links to each month, and each month links back."
+    ],
+    "details": [
+      "This is a digital download, plus a one-page terms of use. No physical item is shipped. Print at 100% actual size, and reprint any page whenever you need a fresh copy.",
+      "This download is free. On Payhip you can pay what you want, or take it at no cost."
+    ],
+    "faq": [
+      [
+        "Is this calendar free?",
+        "Yes. It is a free download. On Payhip you can pay what you want, or take it at no cost."
+      ],
+      [
+        "What formats do I get?",
+        "Four calendar PDFs: US Letter and A4, each in a Sunday start edition and a Monday start edition. Print the one that matches your paper and the day you want each week to begin."
+      ],
+      [
+        "What is on the pages?",
+        "Each file is 13 pages: a 2027 year-at-a-glance with all 12 months on one page, and a monthly calendar for January through December, with the correct 2027 dates already filled in and room to write in each day."
+      ],
+      [
+        "Does the calendar mark holidays?",
+        "No. The calendar does not mark holidays."
+      ],
+      [
+        "How do I download it?",
+        "Checkout is handled by Payhip. After you order, you get an instant download of a zip file. No physical item is shipped."
+      ],
+      [
+        "Can I reprint pages?",
+        "Yes. Print at 100% actual size, and reprint any page whenever you need a fresh copy."
+      ]
+    ],
+    "related": [
+      {
+        "slug": "monthly-weekly-planner",
+        "text": "Want a dated 2027 planner with weekly pages? See the 2027 Monthly and Weekly Planner"
+      }
+    ],
+    "images": [
+      {
+        "src": "free-2027-calendar/previews/01-hero-year.png",
+        "name": "year",
+        "alt": "2027 year-at-a-glance page from the free printable calendar, with all 12 months on one page"
+      },
+      {
+        "src": "free-2027-calendar/previews/02-monthly-page.png",
+        "name": "monthly",
+        "alt": "Monthly calendar page with the 2027 dates filled in and room to write in each day"
+      },
+      {
+        "src": "free-2027-calendar/previews/03-months-collage.png",
+        "name": "collage",
+        "alt": "A collage of monthly calendar pages from the 2027 Printable Calendar"
+      }
+    ]
+  },
+  {
     "slug": "monthly-weekly-planner",
     "name": "2027 Monthly and Weekly Planner",
     "price": "4.99",
@@ -548,6 +629,12 @@
         "src": "2027-calendar-planner/previews/03-weekly-page.png",
         "name": "weekly",
         "alt": "Weekly planner page for January 3 to January 9, 2027 with daily spaces, to-do list, and notes"
+      }
+    ],
+    "related": [
+      {
+        "slug": "2027-calendar",
+        "text": "Need a free 2027 calendar with a year overview and monthly pages? See the 2027 Printable Calendar"
       }
     ]
   }
