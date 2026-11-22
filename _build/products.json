@@ -131,5 +131,94 @@
         "alt": "January 2027 habit tracker page with days and weekday initials filled in"
       }
     ]
+  },
+  {
+    "slug": "holiday-planner",
+    "name": "2026 Christmas and Holiday Planner",
+    "price": "4.99",
+    "currency": "USD",
+    "buy_url": "https://payhip.com/Frondworks",
+    "format": "Printable PDF, US Letter and A4",
+    "subtitle": "A 22-page printable PDF dated for the 2026 holiday season: December calendar, countdown, gift list, meal planner, and card list. US Letter and A4.",
+    "meta_description": "A 22-page printable 2026 Christmas and Holiday Planner PDF: December calendar, countdown, gift list, budget tracker, and meal planner. US Letter and A4. $4.99.",
+    "card_blurb": "A 22-page printable PDF dated for the 2026 holiday season, with a December calendar, gift list, meal planner, and card list.",
+    "tagline": "Plan Christmas and the wider holiday season on paper.",
+    "intro": [
+      "This printable planner is dated for the 2026 holiday season."
+    ],
+    "inside_heading": "Inside you will find",
+    "inside": [
+      "A December 2026 calendar with the correct weekdays, plus a list of widely observed dates.",
+      "A countdown from December 1 to 25.",
+      "A weekly to-do and prep checklist, from late November through the first days of January.",
+      "A gift list, a gift budget tracker, and a holiday spending overview.",
+      "Meal planner pages, a grocery and shopping list, and a holiday card list.",
+      "Pages for events, decorating, baking and recipe cards, gratitude and memories, and notes."
+    ],
+    "details": [
+      "The planner is 22 pages, designed for home printing, with a calm layout, generous writing space, and light ink use.",
+      "You will receive two PDFs, one US Letter and one A4, plus a one-page terms of use. This is a digital download. No physical item will be shipped.",
+      "Print at 100% actual size, and reprint any page whenever you need a fresh copy."
+    ],
+    "images": [
+      {
+        "src": "holiday-planner/previews/01-cover-preview.png",
+        "name": "cover",
+        "alt": "Cover page of the 2026 Christmas and Holiday Planner"
+      },
+      {
+        "src": "holiday-planner/previews/02-calendar-preview.png",
+        "name": "calendar",
+        "alt": "December 2026 holiday overview calendar and key dates page"
+      },
+      {
+        "src": "holiday-planner/previews/03-countdown-preview.png",
+        "name": "countdown",
+        "alt": "Countdown to Christmas page from December 1 to December 25"
+      }
+    ]
+  },
+  {
+    "slug": "monthly-weekly-planner",
+    "name": "2027 Monthly and Weekly Planner",
+    "price": "4.99",
+    "currency": "USD",
+    "buy_url": "https://payhip.com/Frondworks",
+    "format": "Printable PDF, US Letter and A4",
+    "subtitle": "A 72-page dated calendar for 2027 in four PDFs: US Letter and A4, Sunday start and Monday start.",
+    "meta_description": "A 72-page printable 2027 Monthly and Weekly Planner PDF with 12 months, 53 weeks, and linked pages. Four PDFs: Letter and A4, Sunday and Monday start. $4.99.",
+    "card_blurb": "A 72-page dated calendar for 2027 with 12 months and 53 weeks. Four PDFs for Letter and A4, Sunday and Monday start.",
+    "tagline": "A calm, dated calendar for 2027, made for home printing.",
+    "intro": [
+      "You get four planner PDFs: US Letter and A4, each in a Sunday start edition and a Monday start edition. Print the one that matches your paper and the day you want each week to begin."
+    ],
+    "inside_heading": "Each file is 72 pages and includes",
+    "inside": [
+      "A how-to page, and a 2027 year-at-a-glance with all 12 months.",
+      "A monthly calendar for January through December, with the correct 2027 dates already filled in. US federal holidays are marked on their calendar dates, not on an observed weekday when that is different.",
+      "A weekly page for every week of 2027 (53 pages), with space for notes and a to-do list. Weeks at the start and end of the year include a few days from late 2026 or early 2028, so each week is a complete seven days.",
+      "Two notes pages and two project pages at the back."
+    ],
+    "details": [
+      "In a PDF reader, the year overview links to each month, each month links to its weeks, and each week links back. Bookmarks follow the same structure.",
+      "This is a digital download, plus a one-page terms of use. No physical item is shipped. Print at 100% actual size, and reprint any page whenever you need a fresh copy."
+    ],
+    "images": [
+      {
+        "src": "2027-calendar-planner/previews/01-cover-hero.png",
+        "name": "cover",
+        "alt": "Cover page of the 2027 Monthly and Weekly Planner"
+      },
+      {
+        "src": "2027-calendar-planner/previews/02-monthly-page.png",
+        "name": "monthly",
+        "alt": "January 2027 monthly calendar page with dates and notes space"
+      },
+      {
+        "src": "2027-calendar-planner/previews/03-weekly-page.png",
+        "name": "weekly",
+        "alt": "Weekly planner page for January 3 to January 9, 2027 with daily spaces, to-do list, and notes"
+      }
+    ]
   }
 ]

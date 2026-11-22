@@ -32,14 +32,18 @@ def make_images(src_root):
                 c.save(os.path.join(d, f'{im["name"]}-{size}.webp'), "WEBP", quality=80, method=6)
                 if size == 1200:
                     c.save(os.path.join(d, f'{im["name"]}-1200.jpg'), "JPEG", quality=78, optimize=True, progressive=True)
-    # home share image: the three covers on a neutral background
+    # home share image: product covers on a neutral background
     W, H = 1200, 630
     og = Image.new("RGB", (W, H), (244, 242, 236))
-    x = 60
+    n = len(products)
+    margin, gap = 40, 20
+    slot_w = (W - 2 * margin - gap * (n - 1)) // n
+    x = margin
     for p in products:
         img = Image.open(os.path.join(src_root, p["images"][0]["src"])).convert("RGB")
-        img.thumbnail((340, 510), Image.LANCZOS)
-        og.paste(img, (x + (340 - img.width) // 2, (H - img.height) // 2)); x += 370
+        img.thumbnail((slot_w, H - 80), Image.LANCZOS)
+        og.paste(img, (x + (slot_w - img.width) // 2, (H - img.height) // 2))
+        x += slot_w + gap
     og.save(os.path.join(ROOT, "img", "og-home.jpg"), "JPEG", quality=80, optimize=True)
 
 def dims(slug, name, size):
@@ -147,7 +151,7 @@ FORM = open(os.path.join(ROOT, "_build", "contact-form.html")).read().rstrip()
 
 FAQ = [
     ("How do I get my files?", f"Checkout is handled by Payhip. After you pay, you get an instant download of a zip file. No physical item is shipped."),
-    ("What formats are the files?", "The Money Planner is an Excel workbook that also works in Google Sheets, with an instructions PDF. The Bill Audit comes as two Excel workbooks (a fictional sample and a blank copy) for Excel and Google Sheets, with an instructions PDF. The Goal-Setting Kit is two printable PDFs, one US Letter and one A4."),
+    ("What formats are the files?", "The Money Planner and Bill Audit are Excel workbooks that also work in Google Sheets, with instructions PDFs. The Goal-Setting Kit and Christmas and Holiday Planner are printable PDFs in US Letter and A4. The Monthly and Weekly Planner includes four PDFs: US Letter and A4, in Sunday start and Monday start editions."),
     ("Can I share or resell the files?", "No. Each product is licensed for personal use: you may use, edit, and print it for yourself and your household. Please do not resell, share, or redistribute the files. The terms are included in each download."),
     ("Do the spreadsheets connect to my bank?", "No. You type the numbers. The spreadsheets do not connect to your bank or send reminders, and they use no macros."),
     ("Is this financial advice?", "No. These are planning tools, not financial advice."),
@@ -172,7 +176,7 @@ def card(p, i):
 
 def build_home():
     title = "Frondworks: Printables and Spreadsheets for Money, Planning, and Goals"
-    desc = "Printables and spreadsheets for money, planning, and goals: a 2027 money planner, a subscription and bill audit, and a goal-setting kit. Instant download."
+    desc = "Practical printables and spreadsheets for money, planning, and goals: 2027 planners, a holiday planner, a bill audit, and a goal kit. Instant download."
     org = {"@context": "https://schema.org", "@type": "Organization", "name": "Frondworks", "url": SITE + "/",
            "email": EMAIL, "sameAs": [SHOP]}
     site = {"@context": "https://schema.org", "@type": "WebSite", "name": "Frondworks", "url": SITE + "/"}
