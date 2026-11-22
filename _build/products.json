@@ -543,6 +543,10 @@
       {
         "slug": "gift-list-tracker",
         "text": "See also the free Holiday Gift List and Budget Tracker"
+      },
+      {
+        "slug": "valentines-printables",
+        "text": "See also the Valentine's Day Printables Pack"
       }
     ],
     "images": [
@@ -560,6 +564,57 @@
         "src": "gift-card-holders/previews/03-gift-coupons.png",
         "name": "coupons",
         "alt": "DIY gift coupon pages, including pre-filled and blank fill-in coupons"
+      }
+    ]
+  },
+  {
+    "slug": "valentines-printables",
+    "name": "Valentine's Day Printables Pack",
+    "price": "4.99",
+    "currency": "USD",
+    "buy_url": "PLACEHOLDER_PAYHIP_URL",
+    "format": "Printable PDF, US Letter and A4",
+    "subtitle": "A 14-page printable pack of DIY love coupons, Reasons I Love You keepsakes, a Date Night Idea Jar, Valentine cards, and gift tags. US Letter and A4.",
+    "meta_description": "A 14-page printable Valentine's Day pack: DIY love coupons, Reasons I Love You keepsakes, a Date Night Idea Jar, cards, and gift tags. US Letter and A4. $4.99.",
+    "card_blurb": "A 14-page printable pack of DIY love coupons, Reasons I Love You keepsakes, a Date Night Idea Jar, Valentine cards, and gift tags.",
+    "tagline": "Printable coupons, keepsakes, jar cards, cards, and gift tags you can print and cut at home.",
+    "intro": [
+      "Celebrate Valentine's Day with printable coupons, keepsakes, jar cards, cards, and gift tags you can print and cut at home."
+    ],
+    "inside_heading": "Inside this 14-page pack you will find",
+    "inside": [
+      "A cover and a How to Print and Cut guide with a clickable table of contents.",
+      "Twelve DIY love coupons across three pages: eight pre-filled everyday coupons (such as breakfast in bed, movie night, and dinner cooked at home) plus four blank fill-in coupons.",
+      "Two Reasons I Love You keepsake formats: one 20-line numbered sheet and one sheet of six cut-out fill-in cards.",
+      "A Date Night Idea Jar set: ten pre-written foldable cards with simple home and outdoor date ideas (including \"Picnic at home\", \"Cook a new recipe together\", and \"Board game night\"), eight blank foldable cards, and two optional cut-out jar labels.",
+      "Three sets of printable Valentine cards: two folded cards for partners, two folded cards for friends and Galentine's Day, and six flat classroom-friendly Valentine cards for kids.",
+      "Twelve hole-punch gift tags across two pages: three partners designs, three friends designs, and six kids classroom designs, with punch marks and To/From lines."
+    ],
+    "details": [
+      "Solid cut lines, dashed fold lines, and punch marks are drawn on the pages. You will receive two PDFs laid out natively for US Letter and A4, plus a one-page Terms of Use PDF. This is a digital download. No physical item will be shipped.",
+      "Print at 100% actual size on plain paper or cardstock, and reprint pages as needed for personal use."
+    ],
+    "related": [
+      {
+        "slug": "gift-card-holders",
+        "text": "See also the Printable Gift Card Holders and DIY Gift Coupons"
+      }
+    ],
+    "images": [
+      {
+        "src": "valentines-printables/previews/01-cover-hero.png",
+        "name": "cover",
+        "alt": "Cover of the Valentine's Day Printables Pack, a 14-page printable in US Letter and A4"
+      },
+      {
+        "src": "valentines-printables/previews/02-coupons-and-jar.png",
+        "name": "coupons-and-jar",
+        "alt": "Preview of DIY love coupons, a Reasons I Love You sheet, and Date Night Idea Jar cards"
+      },
+      {
+        "src": "valentines-printables/previews/03-cards-and-tags.png",
+        "name": "cards-and-tags",
+        "alt": "Preview of printable Valentine cards and hole-punch gift tags for partners, friends, and kids"
       }
     ]
   },
