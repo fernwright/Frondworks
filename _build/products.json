@@ -520,7 +520,7 @@
     "price": "0.00",
     "currency": "USD",
     "free": true,
-    "buy_url": "PLACEHOLDER_PAYHIP_URL",
+    "buy_url": "https://payhip.com/b/l1x6q",
     "format": "Printable PDF, US Letter and A4",
     "subtitle": "A free 13-page printable 2027 calendar PDF with a year-at-a-glance and 12 monthly pages. US Letter and A4, Sunday or Monday start.",
     "meta_description": "Free printable 2027 calendar PDF: a year-at-a-glance and 12 monthly pages, with room to write. US Letter and A4, Sunday or Monday start. Instant download.",
