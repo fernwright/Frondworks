@@ -124,6 +124,10 @@
       {
         "slug": "debt-payoff-planner",
         "text": "Pair it with the 2027 Debt Payoff Planner"
+      },
+      {
+        "slug": "meal-planner",
+        "text": "Pair it with the 2027 Meal Planner and Grocery List"
       }
     ],
     "images": [
@@ -196,6 +200,59 @@
         "src": "2027-debt-payoff-planner/previews/03-payment-schedule.png",
         "name": "payment-schedule",
         "alt": "Monthly payment schedule page for January to December 2027"
+      }
+    ]
+  },
+  {
+    "slug": "meal-planner",
+    "name": "2027 Meal Planner and Grocery List",
+    "price": "4.99",
+    "currency": "USD",
+    "buy_url": "PLACEHOLDER_PAYHIP_URL",
+    "format": "Printable PDF, US Letter and A4",
+    "subtitle": "A 14-page printable planner for meals and grocery trips in 2027, with weekly meal plans, grocery lists, recipe cards, and a grocery spending tracker. US Letter and A4.",
+    "meta_description": "A 14-page printable 2027 Meal Planner and Grocery List: weekly meal plans, grocery lists, recipe cards, and a grocery spending tracker. US Letter and A4. $4.99.",
+    "card_blurb": "A 14-page printable planner for meals and grocery trips in 2027, with weekly meal plans, grocery lists, and a grocery spending tracker.",
+    "tagline": "A calm, printable planner for meals and grocery trips in 2027, made for home printing.",
+    "intro": [
+      "This planner is an organizing tool. It does not offer nutrition advice, health guidance, or meal plans to follow, and it does not make savings claims. Totals are left blank so you can add them by hand."
+    ],
+    "inside_heading": "Inside you will find",
+    "inside": [
+      "Two weekly meal plan pages, each with Monday to Sunday, plus breakfast, lunch, dinner, and snacks, a week-of date, and a notes and prep area. These pages are meant to be reprinted, and two copies are included.",
+      "Two grocery lists, sorted by store section: Produce, Meat and Seafood, Dairy and Eggs, Bakery, Pantry, Frozen, Beverages, Household, and Other.",
+      "A pantry, fridge, and freezer inventory, with space for an item, a quantity, and a date or use-by.",
+      "A full-page recipe card, plus two pages of 4 x 6 inch recipe cut-out cards, with cut lines. Each cut-out card is 4 inches by 6 inches and sits inside the printable margins.",
+      "A favorite meals list, a fill-in page for budget-friendly meal ideas (no pre-written meals or nutrition content), a monthly grocery spending tracker for January to December 2027, and a notes page.",
+      "The grocery spending tracker uses the same Groceries category as the 2027 Budget Binder, so the two can be used together. Columns are included for budget, spent, and difference."
+    ],
+    "details": [
+      "The planner is 14 pages, designed for home printing, with a calm layout, generous writing space, and light ink use.",
+      "You will receive two PDFs, one US Letter and one A4, plus a one-page terms of use. This is a digital download. No physical item will be shipped.",
+      "This planner is an organizing tool. It does not offer nutrition advice, health guidance, or meal plans to follow, and it does not make savings claims.",
+      "Print at 100% actual size, and reprint any page whenever you need a fresh copy."
+    ],
+    "related": [
+      {
+        "slug": "budget-binder",
+        "text": "Pair it with the 2027 Budget Binder"
+      }
+    ],
+    "images": [
+      {
+        "src": "2027-meal-planner/previews/01-cover-hero.png",
+        "name": "cover",
+        "alt": "Cover of the 2027 Meal Planner and Grocery List, a 14-page printable in US Letter and A4"
+      },
+      {
+        "src": "2027-meal-planner/previews/02-weekly-meal-plan.png",
+        "name": "weekly-meal-plan",
+        "alt": "Weekly meal plan page with Monday to Sunday, plus breakfast, lunch, dinner, and snacks"
+      },
+      {
+        "src": "2027-meal-planner/previews/03-grocery-list.png",
+        "name": "grocery-list",
+        "alt": "Grocery list page sorted by store section"
       }
     ]
   },
