@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /worker/
+Disallow: /tmp/
 
 Sitemap: https://frondworks.com/sitemap.xml
