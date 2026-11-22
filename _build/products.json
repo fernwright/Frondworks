@@ -82,6 +82,10 @@
       {
         "slug": "budget-binder",
         "text": "Pair it with the 2027 Budget Binder"
+      },
+      {
+        "slug": "debt-payoff-planner",
+        "text": "Pair it with the 2027 Debt Payoff Planner"
       }
     ]
   },
@@ -116,6 +120,10 @@
       {
         "slug": "planner",
         "text": "Pair it with the 2027 Fresh Start Money Planner"
+      },
+      {
+        "slug": "debt-payoff-planner",
+        "text": "Pair it with the 2027 Debt Payoff Planner"
       }
     ],
     "images": [
@@ -133,6 +141,61 @@
         "src": "2027-budget-binder/previews/03-savings-tracker.png",
         "name": "savings-tracker",
         "alt": "Savings goal tracker pages with progress bars to color in"
+      }
+    ]
+  },
+  {
+    "slug": "debt-payoff-planner",
+    "name": "2027 Debt Payoff Planner",
+    "price": "4.99",
+    "currency": "USD",
+    "buy_url": "PLACEHOLDER_PAYHIP_URL",
+    "format": "Printable PDF, US Letter and A4",
+    "subtitle": "A 15-page printable planner for organizing debts in 2027, with an inventory, snowball or avalanche worksheet, payoff trackers, and a 2027 payment schedule. US Letter and A4.",
+    "meta_description": "A 15-page printable 2027 Debt Payoff Planner: inventory, snowball or avalanche worksheet, payoff trackers, and a 2027 payment schedule. US Letter and A4. $4.99.",
+    "card_blurb": "A 15-page printable planner for organizing debts in 2027, with an inventory, payoff trackers, and a monthly payment schedule.",
+    "tagline": "A calm, printable planner for organizing debts in 2027, made for home printing.",
+    "intro": [
+      "This planner is an organizing tool, not financial advice. It does not calculate payoff dates or interest, and it does not tell you which method to use. Totals are left blank so you can add them by hand."
+    ],
+    "inside_heading": "Inside you will find",
+    "inside": [
+      "A debt inventory, with space for the creditor, type, balance, interest rate, minimum payment, and due date.",
+      "A plain-language page on two common orders, snowball and avalanche, plus an ordering worksheet. Snowball orders debts from the smallest balance to the largest. Avalanche orders them from the highest interest rate to the lowest.",
+      "Six debt payoff trackers, each with a balance log and a small progress bar you can color in. Reprint a tracker if you have more than six debts.",
+      "A 100-square color-in progress chart for your starting total debt, a monthly payment schedule for January to December 2027, an interest and fees log, a page for optional milestone celebrations, and a year-end debt review."
+    ],
+    "details": [
+      "The planner is 15 pages, designed for home printing, with a calm layout, generous writing space, and light ink use.",
+      "You will receive two PDFs, one US Letter and one A4, plus a one-page terms of use. This is a digital download. No physical item will be shipped.",
+      "This is a planning tool, not financial advice. It does not calculate payoff dates or interest, and it does not tell you which method to use.",
+      "Print at 100% actual size, and reprint any page whenever you need a fresh copy."
+    ],
+    "related": [
+      {
+        "slug": "planner",
+        "text": "Pair it with the 2027 Fresh Start Money Planner"
+      },
+      {
+        "slug": "budget-binder",
+        "text": "Pair it with the 2027 Budget Binder"
+      }
+    ],
+    "images": [
+      {
+        "src": "2027-debt-payoff-planner/previews/01-cover-hero.png",
+        "name": "cover",
+        "alt": "Cover of the 2027 Debt Payoff Planner, a 15-page printable in US Letter and A4"
+      },
+      {
+        "src": "2027-debt-payoff-planner/previews/02-progress-and-tracker.png",
+        "name": "progress-tracker",
+        "alt": "Debt payoff tracker and 100-square color-in progress chart pages"
+      },
+      {
+        "src": "2027-debt-payoff-planner/previews/03-payment-schedule.png",
+        "name": "payment-schedule",
+        "alt": "Monthly payment schedule page for January to December 2027"
       }
     ]
   },
