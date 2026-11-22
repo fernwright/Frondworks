@@ -43,6 +43,11 @@ def money(n):
     s = f"{float(n):.2f}"
     return "$" + (s[:-3] if s.endswith(".00") else s)
 
+def count_word(n):
+    return {2: "two", 3: "three", 4: "four", 5: "five", 6: "six",
+            7: "seven", 8: "eight", 9: "nine"}.get(n, str(n))
+
+
 def separate_total(p):
     return sum(float(by_slug(s)["price"]) for s in p["includes"])
 
@@ -54,7 +59,7 @@ def compare_line(p):
 
 def attach_together(p):
     """Prepend the generated together composite when the file exists."""
-    if not is_bundle(p):
+    if not is_bundle(p) or p.get("together") is False:
         return
     path = os.path.join(ROOT, "img", p["slug"], "together-1200.jpg")
     if os.path.exists(path) and not any(im["name"] == "together" for im in p["images"]):
@@ -95,7 +100,7 @@ def make_images(src_root):
                 c.save(os.path.join(d, f'{im["name"]}-{size}.webp'), "WEBP", quality=80, method=6)
                 if size == 1200:
                     c.save(os.path.join(d, f'{im["name"]}-1200.jpg'), "JPEG", quality=78, optimize=True, progressive=True)
-        if is_bundle(p):
+        if is_bundle(p) and p.get("together") is not False:
             make_together(p, src_root)
     # home share image: individual product covers on a neutral background
     covers = singles()
@@ -234,8 +239,9 @@ FORM = open(os.path.join(ROOT, "_build", "contact-form.html")).read().rstrip()
 
 FAQ = [
     ("How do I get my files?", "Checkout is handled by Payhip. After you pay, you get an instant download of a zip file. No physical item is shipped."),
-    ("What formats are the files?", "The Money Planner and Bill Audit are Excel workbooks that also work in Google Sheets, with instructions PDFs. The Goal-Setting Kit and Christmas and Holiday Planner are printable PDFs in US Letter and A4. The Monthly and Weekly Planner includes four PDFs: US Letter and A4, in Sunday start and Monday start editions. The Budget Binder is a 28-page printable PDF in US Letter and A4. The Holiday Gift List and Budget Tracker is a free two-page printable PDF in US Letter and A4. The Gift Card Holders and DIY Gift Coupons pack is a 15-page printable PDF in US Letter and A4. The Debt Payoff Planner is a 15-page printable PDF in US Letter and A4. The Meal Planner and Grocery List is a 14-page printable PDF in US Letter and A4. The 2027 Printable Calendar is a free 13-page printable PDF in four editions: US Letter and A4, Sunday start and Monday start. The 2027 Fresh Start Bundle includes the Money Planner, the Bill Audit, and the Goal-Setting Kit in one purchase."),
+    ("What formats are the files?", "The Money Planner and Bill Audit are Excel workbooks that also work in Google Sheets, with instructions PDFs. The Goal-Setting Kit and Christmas and Holiday Planner are printable PDFs in US Letter and A4. The Monthly and Weekly Planner includes four PDFs: US Letter and A4, in Sunday start and Monday start editions. The Budget Binder is a 28-page printable PDF in US Letter and A4. The Holiday Gift List and Budget Tracker is a free two-page printable PDF in US Letter and A4. The Gift Card Holders and DIY Gift Coupons pack is a 15-page printable PDF in US Letter and A4. The Debt Payoff Planner is a 15-page printable PDF in US Letter and A4. The Meal Planner and Grocery List is a 14-page printable PDF in US Letter and A4. The 2027 Printable Calendar is a free 13-page printable PDF in four editions: US Letter and A4, Sunday start and Monday start. The 2027 Fresh Start Bundle includes the Money Planner, the Bill Audit, and the Goal-Setting Kit in one purchase. The 2027 Complete Printables Collection includes all nine paid products in one purchase."),
     ("What is in the 2027 Fresh Start Bundle?", "It includes the 2027 Fresh Start Money Planner ($9), the Subscription and Recurring Bill Audit ($7), and the 2027 New Year Goal-Setting Kit ($4.99). Bought separately they are $20.99. The bundle is $14.99, so you save $6 versus buying them separately."),
+    ("What is in the 2027 Complete Printables Collection?", "It includes nine paid products: the 2027 Fresh Start Money Planner ($9), the Subscription and Recurring Bill Audit ($7), the 2027 New Year Goal-Setting Kit ($4.99), the 2026 Christmas and Holiday Planner ($4.99), the 2027 Monthly and Weekly Planner ($4.99), the 2027 Budget Binder ($6.99), the Printable Gift Card Holders and DIY Gift Coupons ($4.99), the 2027 Debt Payoff Planner ($4.99), and the 2027 Meal Planner and Grocery List ($4.99). Bought separately they are $52.93. The collection is $19.99, so you save $32.94 versus buying them separately."),
     ("Can I share or resell the files?", "No. Each product is licensed for personal use: you may use, edit, and print it for yourself and your household. Please do not resell, share, or redistribute the files. The terms are included in each download."),
     ("Do the spreadsheets connect to my bank?", "No. You type the numbers. The spreadsheets do not connect to your bank or send reminders, and they use no macros."),
     ("Is this financial advice?", "No. These are planning tools, not financial advice."),
@@ -250,6 +256,8 @@ def feature(p):
         included = names[0]
     elif len(names) == 2:
         included = f"{names[0]} and {names[1]}"
+    elif len(names) > 3:
+        included = f"{count_word(len(names)).capitalize()} printables and spreadsheets"
     else:
         included = ", ".join(names[:-1]) + ", and " + names[-1]
     return f'''      <article class="feature" id="{e(p["slug"])}">
@@ -315,7 +323,9 @@ def build_home():
   <section id="products" class="section" aria-labelledby="products-h">
     <div class="wrap">
       <h2 id="products-h">Products</h2>
+      <div class="features">
 {featured}
+      </div>
       <h3 class="grid-h">Individual products</h3>
       <ul class="grid">
 {cards}
@@ -365,12 +375,31 @@ def build_home():
     write("index.html", out)
 
 # ---------- landing pages ----------
+def callout_label(b):
+    return f"Get all {count_word(len(b['includes']))} in the {e(b['name'])} for {price(b)}"
+
 def callout(b):
-    return (f'      <p class="callout"><a href="/{b["slug"]}/">Get all three in the {e(b["name"])} for {price(b)}</a>. '
-            f'{compare_line(b)}</p>')
+    return f'      <p class="callout"><a href="/{b["slug"]}/">{callout_label(b)}</a>. {compare_line(b)}</p>'
 
 def related_callouts(p):
-    bits = [callout(b) for b in bundles_for(p)]
+    bundled = bundles_for(p)
+    bits = []
+    if len(bundled) > 1:
+        bundled = sorted(bundled, key=lambda b: -len(b.get("includes", [])))
+        first, rest = bundled[0], bundled[1:]
+        parts = [f'<a href="/{first["slug"]}/">{callout_label(first)}</a>. {compare_line(first)}']
+        for b in rest:
+            names = [by_slug(s)["name"] for s in b["includes"]]
+            if b["slug"] == "bundle":
+                short = "the Money Planner, the Bill Audit, and the Goal-Setting Kit"
+            elif len(names) == 3:
+                short = f"the {names[0]}, the {names[1]}, and the {names[2]}"
+            else:
+                short = "those products"
+            parts.append(f'Or get {e(short)} in the <a href="/{b["slug"]}/">{e(b["name"])}</a> for {price(b)}.')
+        bits.append("      <p class=\"callout\">" + " ".join(parts) + "</p>")
+    else:
+        bits.extend(callout(b) for b in bundled)
     for r in p.get("related", []):
         other = by_slug(r["slug"])
         bits.append(f'      <p class="callout"><a href="/{other["slug"]}/">{e(r["text"])}</a></p>')
@@ -416,22 +445,30 @@ def build_product(p):
     title = p.get("page_title") or f'{p["name"]} | Frondworks'
     gallery_items = list(p["images"])
     if is_bundle(p):
-        # Combined composite first, then the first preview of each included product.
-        hero = next(im for im in gallery_items if im["name"] == "together") if any(im["name"]=="together" for im in gallery_items) else gallery_items[0]
-        extra = [(by_slug(s), by_slug(s)["images"][0]) for s in p["includes"]]
-        gallery = "\n".join(
-            [f'        <li class="hero-shot"><a href="/img/{p["slug"]}/{hero["name"]}-1200.jpg">{picture(p, hero, "(min-width: 900px) 1120px, 92vw", lazy=False, priority=True)}</a></li>']
-            + [f'        <li><a href="/{inc["slug"]}/">{picture(inc, im, "(min-width: 900px) 33vw, 92vw", lazy=True)}</a></li>'
-               for inc, im in extra]
-        )
-        gallery_class = " gallery wide-first"
+        nword = count_word(len(p["includes"]))
         inside = "\n".join(
             f'        <li><a href="/{by_slug(s)["slug"]}/">{e(by_slug(s)["name"])}</a>, {price(by_slug(s))}. {e(by_slug(s)["card_blurb"])}</li>'
             for s in p["includes"]
         )
-        compare = f'      <p class="compare">{price(p)} for all three. {compare_line(p)}</p>'
+        compare = f'      <p class="compare">{price(p)} for all {nword}. {compare_line(p)}</p>'
         buy_extra = compare
         mid_callout = ""
+        if any(im["name"] == "together" for im in gallery_items):
+            # Combined composite first, then the first preview of each included product.
+            hero = next(im for im in gallery_items if im["name"] == "together")
+            extra = [(by_slug(s), by_slug(s)["images"][0]) for s in p["includes"]]
+            gallery = "\n".join(
+                [f'        <li class="hero-shot"><a href="/img/{p["slug"]}/{hero["name"]}-1200.jpg">{picture(p, hero, "(min-width: 900px) 1120px, 92vw", lazy=False, priority=True)}</a></li>']
+                + [f'        <li><a href="/{inc["slug"]}/">{picture(inc, im, "(min-width: 900px) 33vw, 92vw", lazy=True)}</a></li>'
+                   for inc, im in extra]
+            )
+            gallery_class = " gallery wide-first"
+        else:
+            gallery = "\n".join(
+                f'        <li{" class=\"hero-shot\"" if i == 0 and len(gallery_items) > 1 else ""}><a href="/img/{p["slug"]}/{im["name"]}-1200.jpg">{picture(p, im, "(min-width: 900px) 1120px, 92vw" if i == 0 else "(min-width: 900px) 33vw, 92vw", lazy=i > 0, priority=(i == 0))}</a></li>'
+                for i, im in enumerate(gallery_items)
+            )
+            gallery_class = " gallery wide-first" if len(gallery_items) > 1 else ""
     else:
         gallery = "\n".join(f'        <li><a href="/img/{p["slug"]}/{im["name"]}-1200.jpg">{picture(p, im, "(min-width: 900px) 33vw, 92vw", lazy=i > 0, priority=(i == 0))}</a></li>' for i, im in enumerate(gallery_items))
         gallery_class = ""

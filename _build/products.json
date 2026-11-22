@@ -1,5 +1,56 @@
 [
   {
+    "slug": "collection",
+    "bundle": true,
+    "together": false,
+    "includes": [
+      "planner",
+      "bill-audit",
+      "goal-kit",
+      "holiday-planner",
+      "monthly-weekly-planner",
+      "budget-binder",
+      "gift-card-holders",
+      "debt-payoff-planner",
+      "meal-planner"
+    ],
+    "name": "2027 Complete Printables Collection",
+    "price": "19.99",
+    "currency": "USD",
+    "buy_url": "PLACEHOLDER_PAYHIP_URL",
+    "format": "Nine downloads: printable PDFs and spreadsheets",
+    "subtitle": "Nine Frondworks printables and spreadsheets in one download, at a lower price than buying each product on its own.",
+    "meta_description": "Nine Frondworks printables and spreadsheets in one download for $19.99. Bought separately they are $52.93, so you save $32.94.",
+    "card_blurb": "Nine printables and spreadsheets in one download. Bought separately they are $52.93.",
+    "tagline": "Nine Frondworks printables and spreadsheets in one download.",
+    "intro": [
+      "The collection is $19.99. Bought separately they are $52.93, which is $32.94 less than buying the nine products individually."
+    ],
+    "inside_heading": "What is inside",
+    "inside": [],
+    "details": [
+      "Formats included: printable PDFs (US Letter and A4, where a product is a PDF) and Excel workbooks that also open in Google Sheets (where a product is a spreadsheet). Each product also includes its one-page terms of use. This is a digital download. No physical item is shipped.",
+      "This collection is a set of planning tools. It is not financial advice or health advice."
+    ],
+    "images": [
+      {
+        "src": "complete-collection-bundle/previews/01-bundle-thumbnail.png",
+        "name": "thumbnail",
+        "alt": "Preview of the 2027 Complete Printables Collection, showing nine Frondworks printables and spreadsheets together"
+      },
+      {
+        "src": "complete-collection-bundle/previews/02-pin.png",
+        "name": "pin-a",
+        "alt": "Preview image for the 2027 Complete Printables Collection"
+      },
+      {
+        "src": "complete-collection-bundle/previews/03-pin.png",
+        "name": "pin-b",
+        "alt": "Another preview image for the 2027 Complete Printables Collection"
+      }
+    ]
+  },
+  {
     "slug": "bundle",
     "bundle": true,
     "includes": [
