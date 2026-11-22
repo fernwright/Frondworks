@@ -1,5 +1,40 @@
 [
   {
+    "slug": "bundle",
+    "bundle": true,
+    "includes": [
+      "planner",
+      "bill-audit",
+      "goal-kit"
+    ],
+    "name": "2027 Fresh Start Bundle",
+    "price": "14.99",
+    "currency": "USD",
+    "buy_url": "https://payhip.com/b/PCtZd",
+    "format": "Three downloads: spreadsheets and a printable PDF",
+    "subtitle": "The 2027 Fresh Start Money Planner, the Subscription and Recurring Bill Audit, and the 2027 New Year Goal-Setting Kit in one purchase.",
+    "meta_description": "The 2027 Fresh Start Money Planner, Bill Audit, and Goal-Setting Kit together for $14.99. Bought separately they are $20.99, so you save $6.",
+    "card_blurb": "The Money Planner, Bill Audit, and Goal-Setting Kit together. Bought separately they are $20.99.",
+    "tagline": "Three Frondworks downloads in one purchase.",
+    "intro": [
+      "The 2027 Fresh Start Bundle includes the 2027 Fresh Start Money Planner, the Subscription and Recurring Bill Audit, and the 2027 New Year Goal-Setting Kit.",
+      "Bought separately they are $9, $7, and $4.99, which adds up to $20.99. The bundle is $14.99, so you save $6 versus buying them separately."
+    ],
+    "inside_heading": "What is included",
+    "inside": [],
+    "details": [
+      "You get the same files as the individual listings: the Money Planner Excel workbook, with an instructions PDF and personal-use terms; the Bill Audit sample and blank Excel workbooks, with an instructions PDF; and the Goal-Setting Kit as two printable PDFs, US Letter and A4, plus terms of use. Instant download. No physical item is shipped.",
+      "The spreadsheets are for Excel and Google Sheets. You type the numbers. They do not connect to your bank or send reminders, and they use no macros. These are planning tools, not financial advice."
+    ],
+    "images": [
+      {
+        "src": "bundle/previews/pin-1-lineup.png",
+        "name": "lineup",
+        "alt": "The 2027 Fresh Start Bundle, with preview pages from the Money Planner, the Bill Audit, and the Goal-Setting Kit, priced at $14.99"
+      }
+    ]
+  },
+  {
     "slug": "planner",
     "name": "2027 Fresh Start Money Planner",
     "price": "9.00",
