@@ -125,7 +125,21 @@ def picture(p, im, sizes, lazy, cls="", priority=False):
             f'<source type="image/webp" srcset="/img/{s}/{n}-600.webp {dims(s,n,600)[0]}w, /img/{s}/{n}-1200.webp {w}w" sizes="{sizes}">'
             f'<img src="/img/{s}/{n}-1200.jpg" alt="{e(im["alt"])}" {attrs}></picture>')
 
-def price(p): return "$" + (p["price"][:-3] if p["price"].endswith(".00") else p["price"])
+def is_free(p):
+    return bool(p.get("free") or float(p["price"]) == 0)
+
+def price(p):
+    if is_free(p):
+        return "Free"
+    return "$" + (p["price"][:-3] if p["price"].endswith(".00") else p["price"])
+
+def buy_label(p):
+    return "Get it free" if is_free(p) else "Buy on Payhip"
+
+def price_html(p, show_currency=True):
+    if is_free(p) or not show_currency:
+        return f'<p class="price">{price(p)}</p>'
+    return f'<p class="price">{price(p)} <span>USD</span></p>'
 
 # ---------- shared chrome ----------
 def head(title, desc, path, og_image, og_alt, og_type="website", jsonld=()):
@@ -217,7 +231,7 @@ FORM = open(os.path.join(ROOT, "_build", "contact-form.html")).read().rstrip()
 
 FAQ = [
     ("How do I get my files?", "Checkout is handled by Payhip. After you pay, you get an instant download of a zip file. No physical item is shipped."),
-    ("What formats are the files?", "The Money Planner and Bill Audit are Excel workbooks that also work in Google Sheets, with instructions PDFs. The Goal-Setting Kit and Christmas and Holiday Planner are printable PDFs in US Letter and A4. The Monthly and Weekly Planner includes four PDFs: US Letter and A4, in Sunday start and Monday start editions. The 2027 Fresh Start Bundle includes the Money Planner, the Bill Audit, and the Goal-Setting Kit in one purchase."),
+    ("What formats are the files?", "The Money Planner and Bill Audit are Excel workbooks that also work in Google Sheets, with instructions PDFs. The Goal-Setting Kit and Christmas and Holiday Planner are printable PDFs in US Letter and A4. The Monthly and Weekly Planner includes four PDFs: US Letter and A4, in Sunday start and Monday start editions. The Holiday Gift List and Budget Tracker is a free two-page printable PDF in US Letter and A4. The 2027 Fresh Start Bundle includes the Money Planner, the Bill Audit, and the Goal-Setting Kit in one purchase."),
     ("What is in the 2027 Fresh Start Bundle?", "It includes the 2027 Fresh Start Money Planner ($9), the Subscription and Recurring Bill Audit ($7), and the 2027 New Year Goal-Setting Kit ($4.99). Bought separately they are $20.99. The bundle is $14.99, so you save $6 versus buying them separately."),
     ("Can I share or resell the files?", "No. Each product is licensed for personal use: you may use, edit, and print it for yourself and your household. Please do not resell, share, or redistribute the files. The terms are included in each download."),
     ("Do the spreadsheets connect to my bank?", "No. You type the numbers. The spreadsheets do not connect to your bank or send reminders, and they use no macros."),
@@ -244,7 +258,7 @@ def feature(p):
           <p class="price">{price(p)} <span>USD</span></p>
           <p class="compare">{compare_line(p)}</p>
           <div class="actions">
-            <a class="btn" href="{p["buy_url"]}">Buy on Payhip<span class="sr">, {e(p["name"])}</span></a>
+            <a class="btn" href="{p["buy_url"]}">{buy_label(p)}<span class="sr">, {e(p["name"])}</span></a>
             <a class="btn ghost" href="/{p["slug"]}/">Details<span class="sr">, {e(p["name"])}</span></a>
           </div>
         </div>
@@ -259,7 +273,7 @@ def card(p, i):
           <p>{e(p["card_blurb"])}</p>
           <p class="price">{price(p)}</p>
           <div class="actions">
-            <a class="btn" href="{p["buy_url"]}">Buy on Payhip<span class="sr">, {e(p["name"])}</span></a>
+            <a class="btn" href="{p["buy_url"]}">{buy_label(p)}<span class="sr">, {e(p["name"])}</span></a>
             <a class="btn ghost" href="/{p["slug"]}/">Details<span class="sr">, {e(p["name"])}</span></a>
           </div>
         </div>
@@ -334,6 +348,15 @@ def callout(b):
     return (f'      <p class="callout"><a href="/{b["slug"]}/">Get all three in the {e(b["name"])} for {price(b)}</a>. '
             f'{compare_line(b)}</p>')
 
+def related_callouts(p):
+    bits = [callout(b) for b in bundles_for(p)]
+    for r in p.get("related", []):
+        other = by_slug(r["slug"])
+        bits.append(f'      <p class="callout"><a href="/{other["slug"]}/">{e(r["text"])}</a></p>')
+    if is_free(p):
+        bits.insert(0, '      <p class="compare">This download is free. Pay what you want is optional.</p>')
+    return "\n".join(bits)
+
 def build_product(p):
     others = [o for o in products if o is not p]
     title = f'{p["name"]} | Frondworks'
@@ -359,7 +382,7 @@ def build_product(p):
         gallery = "\n".join(f'        <li><a href="/img/{p["slug"]}/{im["name"]}-1200.jpg">{picture(p, im, "(min-width: 900px) 33vw, 92vw", lazy=i > 0, priority=(i == 0))}</a></li>' for i, im in enumerate(gallery_items))
         gallery_class = ""
         inside = "\n".join(f"        <li>{x}</li>" for x in p["inside"])
-        mid_callout = "\n".join(callout(b) for b in bundles_for(p))
+        mid_callout = related_callouts(p)
         buy_extra = mid_callout
     intro = "\n".join(f"      <p>{e(x)}</p>" for x in p["intro"])
     details = "\n".join(f"      <p>{e(x)}</p>" for x in p["details"])
@@ -375,8 +398,8 @@ def build_product(p):
       <h1>{e(p["name"])}</h1>
       <p class="lede">{e(p["subtitle"])}</p>
       <div class="buy">
-        <p class="price">{price(p)} <span>USD</span></p>
-        <a class="btn big" href="{p["buy_url"]}">Buy on Payhip</a>
+        {price_html(p)}
+        <a class="btn big" href="{p["buy_url"]}">{buy_label(p)}</a>
       </div>
 {buy_extra}
       <ul class="gallery{gallery_class}" aria-label="Preview images">
@@ -393,8 +416,8 @@ def build_product(p):
 {details}
 {mid_callout}
       <div class="buy">
-        <p class="price">{price(p)} <span>USD</span></p>
-        <a class="btn big" href="{p["buy_url"]}">Buy on Payhip</a>
+        {price_html(p)}
+        <a class="btn big" href="{p["buy_url"]}">{buy_label(p)}</a>
       </div>
       <p>Questions? See the <a href="/#faq">FAQ</a> or email <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
       <h2 class="small">More from Frondworks</h2>

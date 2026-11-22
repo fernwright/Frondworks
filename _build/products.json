@@ -211,6 +211,63 @@
         "name": "countdown",
         "alt": "Countdown to Christmas page from December 1 to December 25"
       }
+    ],
+    "related": [
+      {
+        "slug": "gift-list-tracker",
+        "text": "Pair it with the free Holiday Gift List and Budget Tracker"
+      }
+    ]
+  },
+  {
+    "slug": "gift-list-tracker",
+    "free": true,
+    "name": "Holiday Gift List and Budget Tracker",
+    "price": "0.00",
+    "currency": "USD",
+    "buy_url": "https://payhip.com/b/C98HI",
+    "format": "Printable PDF, US Letter and A4",
+    "subtitle": "A free two-page printable for planning holiday gifts and keeping the spending in view. US Letter and A4. Pay what you want is optional.",
+    "meta_description": "A free two-page printable gift list and budget tracker for the holidays, with a budget summary, gift ideas, and a stocking-stuffer list. US Letter and A4.",
+    "card_blurb": "A two-page printable gift list with a budget, plus a budget summary, gift ideas, and a stocking-stuffer list.",
+    "tagline": "A two-page printable for planning holiday gifts and keeping the spending in view.",
+    "intro": [
+      "Page 1 is a gift list. An overall budget box sits at the top, with spaces for the total spent and the amount remaining. Each row has room for the recipient, the gift idea, the planned budget, and the actual cost, plus checkboxes for bought, wrapped, and given. A totals row at the bottom is ready for you to add the columns by hand.",
+      "Page 2 has a budget summary by person, group, or category, a gift-ideas brainstorm, and a stocking-stuffer list."
+    ],
+    "inside_heading": "What you get",
+    "inside": [
+      "A gift list page with an overall budget, spaces for the amount spent and remaining, and rows for each gift.",
+      "A second page with a budget summary, a gift-ideas brainstorm, and a stocking-stuffer list.",
+      "Two PDFs, one US Letter and one A4, plus a one-page terms of use."
+    ],
+    "details": [
+      "The pages are laid out for home printing, with a calm design and light ink use. This is a digital download. No physical item will be shipped.",
+      "Print at 100% actual size, and reprint any page whenever you need a fresh copy.",
+      "This download is free. On Payhip you can pay what you want, or take it at no cost."
+    ],
+    "related": [
+      {
+        "slug": "holiday-planner",
+        "text": "See also the 2026 Christmas and Holiday Planner"
+      }
+    ],
+    "images": [
+      {
+        "src": "gift-list-tracker/previews/01-hero.png",
+        "name": "hero",
+        "alt": "Cover preview of the Holiday Gift List and Budget Tracker, a two-page printable in US Letter and A4"
+      },
+      {
+        "src": "gift-list-tracker/previews/02-gift-list.png",
+        "name": "gift-list",
+        "alt": "Gift list page with an overall budget and rows for recipient, gift idea, budget, actual cost, and checkboxes"
+      },
+      {
+        "src": "gift-list-tracker/previews/03-budget-and-ideas.png",
+        "name": "budget-ideas",
+        "alt": "Budget and Ideas page with a budget summary, a gift-ideas list, and a stocking-stuffer list"
+      }
     ]
   },
   {
