@@ -146,7 +146,7 @@ export default {
           body: JSON.stringify({
             from: 'Frondworks <leads@frondworks.com>',
             to: [env.LEAD_EMAIL],
-            subject: `New audit request: ${lead.company}`,
+            subject: `New Frondworks enquiry: ${lead.company}`,
             text: [
               `Name: ${lead.name}`,
               `Company: ${lead.company}`,
