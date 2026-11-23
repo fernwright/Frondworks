@@ -1,6 +1,7 @@
         <form id="audit-form" action="/api/lead" method="post">
           <!-- Honeypot: invisible to humans, catches bots. The worker silently drops submissions that fill it. -->
           <input type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0">
+          <input type="hidden" name="form_started" id="form_started" value="" autocomplete="off">
           <div class="row">
             <div class="field">
               <label for="name">Your name</label>

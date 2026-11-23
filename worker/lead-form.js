@@ -76,6 +76,16 @@ export default {
       return json({ ok: true }); // pretend success, drop silently
     }
 
+    // Optional fast-submit check. Missing or unparseable timestamps are allowed
+    // so no-JS users and cached pages still go through.
+    const started = Number(data.form_started);
+    if (Number.isFinite(started) && started > 0) {
+      const dt = Date.now() - started;
+      if (dt >= 0 && dt < 3000) {
+        return json({ ok: true });
+      }
+    }
+
     const lead = {
       name: clean(data.name),
       company: clean(data.company),
@@ -113,7 +123,7 @@ export default {
           body: JSON.stringify({
             embeds: [
               {
-                title: '🔧 New Maps audit request',
+                title: 'New Frondworks enquiry',
                 color: 0xe8632a,
                 fields,
                 timestamp: lead.at,

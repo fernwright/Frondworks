@@ -2,7 +2,10 @@
 // Without JS the form still posts normally to /api/lead.
 (function () {
   var form = document.getElementById('audit-form');
-  if (!form || !window.fetch) return;
+  if (!form) return;
+  var started = document.getElementById('form_started');
+  if (started && !started.value) started.value = String(Date.now());
+  if (!window.fetch) return;
   var status = document.getElementById('form-status');
   var btn = form.querySelector('button[type="submit"]');
   function show(msg) { if (status) status.textContent = msg; }

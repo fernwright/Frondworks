@@ -60,6 +60,7 @@ input,textarea{width:100%;font:inherit;padding:.6rem .7rem;border:1px solid #b9b
 input:focus,textarea:focus{border-color:var(--brand)}
 #form-status{margin:.75rem 0 0;font-weight:600}
 #form-status:empty{display:none}
+#audit-form input[name="company_website"]{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;overflow:hidden;clip:rect(0,0,0,0);pointer-events:none}
 .crumbs{font-size:.9rem;color:var(--muted);margin:0 0 1rem}
 .product .buy{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin:1rem 0 1.5rem}
 .product .buy .price{margin:0}
