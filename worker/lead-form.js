@@ -14,7 +14,9 @@
  *   2. Set the Discord secret (dashboard: Workers & Pages -> frondworks-leads ->
  *      Settings -> Variables and Secrets -> add secret DISCORD_WEBHOOK_URL)
  *      Discord: Server Settings -> Integrations -> Webhooks -> New Webhook
- *   3. (optional) Add secrets RESEND_API_KEY and LEAD_EMAIL for email alerts.
+ *   3. Add secret TURNSTILE_SECRET (Turnstile widget secret). The form widget
+ *      posts cf-turnstile-response; this worker verifies it with Siteverify.
+ *   4. (optional) Add secrets RESEND_API_KEY and LEAD_EMAIL for email alerts.
  *      Resend "from" domain needs one DNS TXT record to verify frondworks.com.
  */
 
@@ -40,6 +42,43 @@ function json(data, status = 200) {
     status,
     headers: { 'content-type': 'application/json', ...CORS },
   });
+}
+
+
+const TURNSTILE_ACTION = 'contact';
+const TURNSTILE_HOSTNAMES = new Set(['frondworks.com', 'www.frondworks.com']);
+
+async function verifyTurnstile(data, request, env) {
+  const token = data['cf-turnstile-response'];
+  if (typeof token !== 'string' || token.length === 0 || token.length > 2048) {
+    return false;
+  }
+  if (typeof env.TURNSTILE_SECRET !== 'string' || !env.TURNSTILE_SECRET) {
+    return false;
+  }
+  const body = new URLSearchParams({
+    secret: env.TURNSTILE_SECRET,
+    response: token,
+  });
+  const ip = request.headers.get('CF-Connecting-IP');
+  if (ip) body.set('remoteip', ip);
+  try {
+    const r = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      signal: AbortSignal.timeout(10_000),
+      body,
+    });
+    if (!r.ok) return false;
+    const result = await r.json();
+    return (
+      result.success === true &&
+      result.action === TURNSTILE_ACTION &&
+      TURNSTILE_HOSTNAMES.has(result.hostname)
+    );
+  } catch {
+    return false;
+  }
 }
 
 export default {
@@ -84,6 +123,19 @@ export default {
       if (dt >= 0 && dt < 3000) {
         return json({ ok: true });
       }
+    }
+
+    // Cloudflare Turnstile: require a fresh, valid token from this site.
+    const turnstileOk = await verifyTurnstile(data, request, env);
+    if (!turnstileOk) {
+      return json(
+        {
+          ok: false,
+          error: 'turnstile-failed',
+          message: 'Please complete the verification and try again.',
+        },
+        403
+      );
     }
 
     const lead = {

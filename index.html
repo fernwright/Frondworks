@@ -372,6 +372,8 @@
             <label for="message">Message</label>
             <textarea id="message" name="message" rows="5"></textarea>
           </div>
+          <div id="contact-turnstile" aria-label="Verification"></div>
+          <noscript><p>To send this form, enable JavaScript, or email <a href="mailto:hello@frondworks.com">hello@frondworks.com</a>.</p></noscript>
           <button type="submit" class="btn big" style="width:100%">Send message</button>
           <p id="form-status" role="status"></p>
         </form>
@@ -419,5 +421,6 @@
   <div class="wrap legal">&copy; 2026 Frondworks</div>
 </footer>
 <script src="/assets/site.js" defer></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onContactTurnstileLoad&render=explicit" defer></script>
 </body>
 </html>

@@ -218,6 +218,7 @@ def footer():
   <div class="wrap legal">&copy; 2026 Frondworks</div>
 </footer>
 <script src="/assets/site.js" defer></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onContactTurnstileLoad&render=explicit" defer></script>
 </body>
 </html>
 '''
